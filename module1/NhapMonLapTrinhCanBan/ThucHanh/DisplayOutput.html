@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Output</title>
+</head>
+<body>
+<div id="msgDiv"></div>
+<button type="button" onclick="showMsgByAlert();">Alert</button>
+<button type="button" onclick="showMsgGetById();">innerHTML</button>
+<button type="button" onclick="showMsgByWrite();">Write</button>
+<button type="button" onclick="showMsgByConsoleLog();">Console Log</button>
+<script>
+    // ham co ten la showMessage : viet lenh alert de show ra thong bao Alert : co noi dung la Hello
+   function showMsgByAlert(){
+       alert('Hello this is alert message !!!');
+   }
+   // hien thi doan text co noi dung la Xin Chao !!! --> ben trong HTML (noi dung duoc chua trong the div)
+   function showMsgGetById(){
+       document.getElementById("msgDiv").innerHTML = "Hello !!!!";
+   }
+   // hien thi doan text : nhung no se HIDE toan bo cac Element trong HTML
+   function showMsgByWrite(){
+       document.write('Hello this is document.write');
+   }
+   // hien thi message nhung chi duoc thay trong console log cua trinh duyet : F12 --> tab console
+   function showMsgByConsoleLog(){
+       console.log('Hello this is message from console.log !!!')
+   }
+</script>
+</body>
+</html>
