@@ -1,47 +1,56 @@
 function insertToDiscount() {
+
     let getCustomerType = document.getElementById("customerType");
-    // lay gia tri dang duoc selected
-    let getText = getCustomerType.options[getCustomerType.selectedIndex].text;
-    let customerTypeValue = getCustomerType.value;
-    console.log(customerTypeValue);
-    document.getElementById("discount").value = customerTypeValue;
+    document.getElementById("discount").value = getCustomerType.value;
 }
 
 function paymentCalculator() {
-    // get value nhap vao tu textbox thong qua id
-    let getCustomerName = document.getElementById("customerName").value;
-    // hien thi value vua get duoc thong qua id su dung innerText vi Element chua du lieu do la the <p>
-    document.getElementById("showName").innerText = "Customer Name: " + getCustomerName;
+    let labelCustomerName = "Customer Name: ";
+    let labelTotalPayment = "TotalPayment: ";
+    let labelIdNumber = "ID Number: ";
+    let labelBirth = "Day Of Birth: ";
+    let labelEmail = "Email: ";
+    let labelAddr = "Address: ";
+    let labelCustomerType = "Customer Type: ";
+    let labelDiscount = "Discount: ";
+    let labelQuantity = "Quantity Includes: ";
+    let labelRentDays = "Rent Days: ";
+    let labelServiceType = "Service Type: ";
 
-    let cmnd = document.getElementById("cmndID").value;
-    document.getElementById("showCMND").innerText = "CMND: " + cmnd;
+    // get value nhap vao tu textbox thong qua id
+    let customerName = document.getElementById("customerName").value;
+    // hien thi value vua get duoc thong qua id su dung innerText vi Element chua du lieu do la the <p>
+    document.getElementById("showName").innerText = labelCustomerName + customerName;
+
+    let idNumber = document.getElementById("idNumber").value;
+    document.getElementById("showIDNumber").innerText = labelIdNumber + idNumber;
 
     let birth = document.getElementById("dayOfBirth").value;
-    document.getElementById("showBirth").innerText = "Day Of Birth: " + birth;
+    document.getElementById("showBirth").innerText = labelBirth + birth;
 
     let email = document.getElementById("email").value;
-    document.getElementById("showEmail").innerText = "Email" + email;
+    document.getElementById("showEmail").innerText = labelEmail + email;
 
     let address = document.getElementById("addr").value;
-    document.getElementById("showAddr").innerText = "Address: " + address;
+    document.getElementById("showAddr").innerText = labelAddr + address;
 
     let customerType = document.getElementById("customerType").value;
-    document.getElementById("showCustomerType").innerText = "Customer Type: " + customerType;
+    document.getElementById("showCustomerType").innerText = labelCustomerType + customerType;
 
     let discount = document.getElementById("discount").value;
-    document.getElementById("showDiscount").innerText = "Discount: " + discount + "%";
+    document.getElementById("showDiscount").innerText = labelDiscount + discount + "%";
 
     let quantity = document.getElementById("quantity").value;
-    document.getElementById("showQuantity").innerText = "Quantity Includes: " + quantity;
+    document.getElementById("showQuantity").innerText = labelQuantity + quantity;
 
     let rentDays = document.getElementById("rentDays").value;
-    document.getElementById("showRentDays").innerText = "Rent Days: " + rentDays;
+    document.getElementById("showRentDays").innerText = labelRentDays + rentDays;
 
     let serviceType = document.getElementById("serviceType");
-    let displayValue = serviceType.options[serviceType.selectedIndex].text;
-    document.getElementById("showServiceType").innerText = "Service Type: " + displayValue;
+    let displayText = serviceType.options[serviceType.selectedIndex].text;
+    document.getElementById("showServiceType").innerText = labelServiceType + displayText;
     let getServiceType = serviceType.value;
-    console.log(getServiceType);
+    // console.log(getServiceType);
 
     let roomType = document.getElementById("roomType").value;
     document.getElementById("showRoomType").innerText = "Room Type: " + roomType;
@@ -51,7 +60,7 @@ function paymentCalculator() {
     //let totalPay = (getServiceType * rentDays * (1 - discount/100));
     let payment = getServiceType * rentDays;
     let totalPayment = payment * (1 - discount / 100);
-    document.getElementById("totalPay").innerHTML = "Total Payment: " + totalPayment.toString();
+    document.getElementById("totalPay").innerText = labelTotalPayment + totalPayment.toString();
 
 
 }
