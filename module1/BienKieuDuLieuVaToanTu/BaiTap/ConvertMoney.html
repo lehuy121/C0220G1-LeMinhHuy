@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convert Money</title>
+</head>
+<body>
+<label>Amount:</label><input type="number" id="amount"></input>
+<label>From Current</label>
+<select id="fromCurrent">
+    <option></option>
+    <option value="23000">VND</option>
+    <option value="1">USD</option>
+</select>
+<label>To Current</label>
+<select id="toCurrent">
+    <option></option>
+    <option value="23000">VND</option>
+    <option value="1">USD</option>
+</select>
+<button onclick="convertMoney();">Convert</button>
+<br>
+<span id="result"></span><span id="moneyType"></span>
+<script>
+    function convertMoney() {
+        let result = 0;
+        let amount = document.getElementById("amount").value;
+
+        let fromCurrent = document.getElementById("fromCurrent");
+        let valueFromCurrent =fromCurrent.value;
+        let getTextFromCurrent = fromCurrent.options[fromCurrent.selectedIndex].text;
+
+        let toCurrent = document.getElementById("toCurrent");
+        let valueToCurrent =toCurrent.value;
+        let getTextToCurrent = toCurrent.options[toCurrent.selectedIndex].text;
+
+        if (getTextFromCurrent === "USD" && getTextToCurrent === "VND") {
+            result = amount * parseInt(valueToCurrent);
+        } else if (getTextFromCurrent === "VND" && getTextToCurrent === "USD") {
+            result = amount / parseInt(valueFromCurrent);
+        } else result = amount;
+        // document.getElementById("result").value = result; ap dung cho the input
+        document.getElementById("result").innerText = result.toString();
+        document.getElementById("moneyType").innerText = getTextToCurrent;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Variable Data-type Operator</title>
+</head>
+<body>
+<div>
+    <label>Physics</label><input type="number" id="physics"></input><br>
+    <label>Chemistry</label><input type="number" id="chemistry"></input><br>
+    <label>Biology</label><input type="number" id="biology"></input><br>
+    <button onclick="totalAndAverage();">Calculator</button>
+    <p id="sum"></p>
+    <p id="evarage"></p>
+</div>
+<div>
+    <label>From oC</label><input type="number" id="celsius"></input>
+    <label>To oF</label><input type="number" id="fahrenheit"></input>
+    <button onclick="convertCelsiusToFahrenheit();">Convert</button>
+</div>
+<div>
+    <button onclick="calculatorAcreagePerimeter();">Calculator Acreage And Perimeter</button><br>
+    <p id="perimeter"></p>
+    <p id="acreage"></p>
+</div>
+<script>
+    function totalAndAverage() {
+        let physicsScore = document.getElementById("physics").value;
+        let chemistryScore = document.getElementById("chemistry").value;
+        let biologyScore = document.getElementById("biology").value;
+
+
+        let sum = parseInt(physicsScore) + parseInt(chemistryScore) + parseInt(biologyScore);
+        let average = sum / 3;
+        document.getElementById("sum").innerText = "SUM: " + sum;
+        document.getElementById("evarage").innerText = "AVARAGE: " + average;
+    }
+    function convertCelsiusToFahrenheit() {
+        let celsius = document.getElementById("celsius").value;
+        let convert = celsius * 9 / 5 + 32;
+        let fahrenheit = document.getElementById("fahrenheit").value = convert;
+    }
+    function calculatorAcreagePerimeter(){
+        const PI = 3.14;
+       let d = prompt("Nhap Vao Duong Kinh");
+       let r = prompt("Nhap Vao Ban Kinh");
+       let resultPerimeter = d * PI;
+       let resultAcreage = (r * r )* PI;
+       document.getElementById("perimeter").innerText = "Perimeter: " + resultPerimeter;
+       document.getElementById("acreage").innerText = "Acreage: " + resultAcreage;
+    }
+</script>
+
+</body>
+</html>
