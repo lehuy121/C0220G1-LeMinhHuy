@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator App</title>
+</head>
+<body>
+<input id="firstNumber">
+<input id="secondNumber"><br>
+<button value="add" id="addition" onclick="calculator(this.value);">Addition(+)</button>
+<button value="sub" id="subtraction" onclick="calculator(this.value);">Subtraction(-)</button>
+<button value="mul" id="multiplication" onclick="calculator(this.value);">Multiplication(x)</button>
+<button value="divi" id="division" onclick="calculator(this.value);">Division(/)</button>
+<br>
+<p id="result"></p>
+<script>
+    function calculator(cal) {
+        // alert(cal)
+        let result;
+        let firstNum = document.getElementById("firstNumber").value;
+        let secondNum = document.getElementById("secondNumber").value;
+        if (cal === "add") {
+            result = addition(firstNum, secondNum);
+            document.getElementById("result").innerText = result;
+        } else if (cal === "sub") {
+            result = subtraction(firstNum, secondNum);
+            document.getElementById("result").innerText = result;
+        } else if (cal === "mul") {
+            result = multiplication(firstNum, secondNum);
+            document.getElementById("result").innerText = result;
+        } else result = division(firstNum, secondNum);
+        document.getElementById("result").innerText = result;
+    }
+
+    function addition(num1, num2) {
+        let result = 0;
+        result = parseInt(num1) + parseInt(num2);
+        return result;
+    }
+
+    function subtraction(num1, num2) {
+        let result = 0;
+        result = parseInt(num1) - parseInt(num2);
+        return result;
+    }
+
+    function multiplication(num1, num2) {
+        let result = 0;
+        result = parseInt(num1) * parseInt(num2);
+        return result;
+    }
+
+    function division(num1, num2) {
+        let result = 0;
+        result = parseInt(num1) / parseInt(num2);
+        return result;
+    }
+</script>
+</body>
+</html>

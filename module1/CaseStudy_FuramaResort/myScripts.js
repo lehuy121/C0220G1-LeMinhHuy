@@ -16,6 +16,7 @@ function paymentCalculator() {
     let labelQuantity = "Quantity Includes: ";
     let labelRentDays = "Rent Days: ";
     let labelServiceType = "Service Type: ";
+    let labelPercent = "%";
 
     // get value nhap vao tu textbox thong qua id
     let customerName = document.getElementById("customerName").value;
@@ -34,11 +35,12 @@ function paymentCalculator() {
     let address = document.getElementById("addr").value;
     document.getElementById("showAddr").innerText = labelAddr + address;
 
-    let customerType = document.getElementById("customerType").value;
-    document.getElementById("showCustomerType").innerText = labelCustomerType + customerType;
+    let customerType = document.getElementById("customerType");
+    let txtCustomerType = customerType.options[customerType.selectedIndex].text;
+    document.getElementById("showCustomerType").innerText = labelCustomerType + txtCustomerType;
 
     let discount = document.getElementById("discount").value;
-    document.getElementById("showDiscount").innerText = labelDiscount + discount + "%";
+    document.getElementById("showDiscount").innerText = labelDiscount + discount + labelPercent;
 
     let quantity = document.getElementById("quantity").value;
     document.getElementById("showQuantity").innerText = labelQuantity + quantity;

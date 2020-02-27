@@ -19,7 +19,8 @@
     <button onclick="convertCelsiusToFahrenheit();">Convert</button>
 </div>
 <div>
-    <button onclick="calculatorAcreagePerimeter();">Calculator Acreage And Perimeter</button><br>
+    <button onclick="calculatorAcreagePerimeter();">Calculator Acreage And Perimeter</button>
+    <br>
     <p id="perimeter"></p>
     <p id="acreage"></p>
 </div>
@@ -35,19 +36,21 @@
         document.getElementById("sum").innerText = "SUM: " + sum;
         document.getElementById("evarage").innerText = "AVARAGE: " + average;
     }
+
     function convertCelsiusToFahrenheit() {
         let celsius = document.getElementById("celsius").value;
         let convert = celsius * 9 / 5 + 32;
         let fahrenheit = document.getElementById("fahrenheit").value = convert;
     }
-    function calculatorAcreagePerimeter(){
+
+    function calculatorAcreagePerimeter() {
         const PI = 3.14;
-       let d = prompt("Nhap Vao Duong Kinh");
-       let r = prompt("Nhap Vao Ban Kinh");
-       let resultPerimeter = d * PI;
-       let resultAcreage = (r * r )* PI;
-       document.getElementById("perimeter").innerText = "Perimeter: " + resultPerimeter;
-       document.getElementById("acreage").innerText = "Acreage: " + resultAcreage;
+        let d = prompt("Nhap Vao Duong Kinh");
+        let r = prompt("Nhap Vao Ban Kinh");
+        let resultPerimeter = d * PI;
+        let resultAcreage = (r * r) * PI;
+        document.getElementById("perimeter").innerText = "Perimeter: " + resultPerimeter;
+        document.getElementById("acreage").innerText = "Acreage: " + resultAcreage;
     }
 </script>
 
