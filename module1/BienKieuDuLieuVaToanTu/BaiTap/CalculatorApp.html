@@ -7,10 +7,10 @@
 <body>
 <input id="firstNumber">
 <input id="secondNumber"><br>
-<button value="add" id="addition" onclick="calculator(this.value);">Addition(+)</button>
-<button value="sub" id="subtraction" onclick="calculator(this.value);">Subtraction(-)</button>
-<button value="mul" id="multiplication" onclick="calculator(this.value);">Multiplication(x)</button>
-<button value="divi" id="division" onclick="calculator(this.value);">Division(/)</button>
+<button value="add" id="addition" onclick="calculator(this.value);">+</button>
+<button value="sub" id="subtraction" onclick="calculator(this.value);">-</button>
+<button value="mul" id="multiplication" onclick="calculator(this.value);">x</button>
+<button value="divi" id="division" onclick="calculator(this.value);">/</button>
 <br>
 <p id="result"></p>
 <script>
@@ -34,10 +34,9 @@
 
     function addition(num1, num2) {
         let result = 0;
-        result = parseInt(num1) + parseInt(num2);
+        result = num1 *1 + parseInt(num2);
         return result;
     }
-
     function subtraction(num1, num2) {
         let result = 0;
         result = parseInt(num1) - parseInt(num2);
