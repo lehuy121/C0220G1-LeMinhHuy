@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key Board Event</title>
+    <style>
+        body{
+            background: darkgray;
+        }
+    </style>
+</head>
+<body onload="docReady();">
+<img id="nobita" src="nobita.png" style="position:absolute;left:0; top:0;" height="200" width="160"/>
+
+<script>
+    function upArrowPressed() {
+        let element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) - 20 + 'px';
+    }
+    function downArrowPressed() {
+        let element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) + 20 + 'px';
+    }
+    function leftArrowPressed() {
+        let element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) - 20 + 'px';
+    }
+    function rightArrowPressed() {
+        let element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) + 20 + 'px';
+
+    }
+    function reloadWeb(){
+        location.reload();
+    }
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+            case 38:
+                upArrowPressed();
+                break;
+            case 40:
+                downArrowPressed();
+                break;
+            case 13:
+                reloadWeb();
+                break;
+        }
+    }
+    function docReady() {
+        // lang nghe ---> khi co su kien an 1 nut tu ban phim xuong--- goi function moveSelection
+        window.addEventListener('keydown', moveSelection);
+    }
+</script>
+</body>
+</html>
