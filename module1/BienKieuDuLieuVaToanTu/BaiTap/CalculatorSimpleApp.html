@@ -62,6 +62,9 @@
     }
     function calculator(){
         let display = document.getElementById("display");
+        if(display.value === ""){
+            alert("Input Number Please !!!")
+        }else
         display.value = eval(display.value);
     }
 </script>
