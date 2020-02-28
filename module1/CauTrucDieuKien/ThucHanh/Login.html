@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<script>
+    let admin = "Admin";
+    let passAdmin = "TheMaster";
+    let enterNull = "";
+    let msgWelcomeAdmin = "Welcome !!!" + admin;
+    let msgCanceled = "Calceled !!!";
+    let msgDontKnow = "I don't know you";
+    let enterUserName = prompt("Please Enter UserName!!!");
+    if (enterUserName === admin) {
+        let pass = prompt("Enter password")
+        if(pass === passAdmin){
+            alert(msgWelcomeAdmin);
+        }
+    }else if(enterUserName ===enterNull){
+        alert(msgCanceled);
+    } else{
+        alert(msgDontKnow);
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
