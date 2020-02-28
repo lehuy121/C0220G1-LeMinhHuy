@@ -1,4 +1,10 @@
-function displayInfo() {
+function confirmAction(){
+    let confirmMessage = confirm("Are you sure ?");
+    if(confirmMessage){
+        displayInfor();
+    }
+}
+function displayInfor() {
     let labelCustomerName = "Customer Name: ";
     let labelTotalPayment = "TotalPayment: ";
     let labelIdNumber = "ID Number: ";
