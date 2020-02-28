@@ -12,20 +12,21 @@
     let msgWelcomeAdmin = "Welcome !!!" + admin;
     let msgCanceled = "Calceled !!!";
     let msgDontKnow = "I don't know you";
+    let msgWrongPass = "Wrong Pass";
     let enterUserName = prompt("Please Enter UserName!!!");
+
     if (enterUserName === admin) {
-        let pass = prompt("Enter password")
-        if(pass === passAdmin){
+        let pass = prompt("Enter password");
+        if (pass === passAdmin) {
             alert(msgWelcomeAdmin);
-        }
-    }else if(enterUserName ===enterNull){
+        } else if (pass === enterNull) {
+            alert(msgCanceled);
+        } else alert(msgWrongPass);
+    } else if (enterUserName === enterNull) {
         alert(msgCanceled);
-    } else{
+    } else {
         alert(msgDontKnow);
     }
-
-
-
 
 
 </script>
