@@ -1,21 +1,22 @@
 function confirmAction() {
-    let confirmMessage = confirm("Are you sure ?");
-    if (confirmMessage) {
+    let pressOk = confirm(" Click OK to Confirm, Cancel to Cancel");
+    if (pressOk) {
         displayInformation();
     }
 }
+
 function displayInformation() {
-    let initData = {
+    let getInformation = {
         customerName: getValueById("customerName"),
         idNumber: getValueById("idNumber"),
         email: getValueById("email"),
         dayOfBirth: getValueById("dayOfBirth"),
         address: getValueById("addr"),
-        customerType: getTextOptionSelected(getElementById("customerType")),
+        customerType: getValueOptionSelected(getElementById("customerType")),
         discount: getValueById("discount"),
         quantity: getValueById("quantity"),
         rentDays: getValueById("rentDays"),
-        serviceType: getTextOptionSelected(getElementById("serviceType")),
+        serviceType: getValueOptionSelected(getElementById("serviceType")),
         valueServiceType: getValueById("serviceType"),
         roomType: getValueById("roomType")
     };
@@ -35,20 +36,20 @@ function displayInformation() {
         percent: " %",
         usd: " $"
     };
-    pushTextValueById("showName", label.customerName + initData.customerName);
-    pushTextValueById("showIDNumber", label.idNumber + initData.idNumber);
-    pushTextValueById("showBirth", label.labelBirth + initData.dayOfBirth);
-    pushTextValueById("showEmail", label.email + initData.email);
-    pushTextValueById("showAddr", label.address + initData.address);
-    pushTextValueById("showCustomerType", label.customerType + initData.customerType);
-    pushTextValueById("showDiscount", label.discount + initData.discount + label.percent);
-    pushTextValueById("showQuantity", label.quantity + initData.quantity);
-    pushTextValueById("showRentDays", label.rentDays + initData.rentDays);
-    pushTextValueById("showServiceType", label.serviceType + initData.serviceType);
-    pushTextValueById("showRoomType", label.roomType + initData.roomType);
+    displayTextById("showName", label.customerName + getInformation.customerName);
+    displayTextById("showIDNumber", label.idNumber + getInformation.idNumber);
+    displayTextById("showBirth", label.labelBirth + getInformation.dayOfBirth);
+    displayTextById("showEmail", label.email + getInformation.email);
+    displayTextById("showAddr", label.address + getInformation.address);
+    displayTextById("showCustomerType", label.customerType + getInformation.customerType);
+    displayTextById("showDiscount", label.discount + getInformation.discount + label.percent);
+    displayTextById("showQuantity", label.quantity + getInformation.quantity);
+    displayTextById("showRentDays", label.rentDays + getInformation.rentDays);
+    displayTextById("showServiceType", label.serviceType + getInformation.serviceType);
+    displayTextById("showRoomType", label.roomType + getInformation.roomType);
 
-    let result = paymentCalculator(initData.valueServiceType, initData.rentDays, initData.discount);
-    pushTextValueById("totalPay", label.totalPayment + result + label.usd);
+    let result = paymentCalculator(getInformation.valueServiceType, getInformation.rentDays, getInformation.discount);
+    displayTextById("totalPay", label.totalPayment + result + label.usd);
 }
 
 function paymentCalculator(serviceType, rentDays, discount) {
@@ -57,9 +58,8 @@ function paymentCalculator(serviceType, rentDays, discount) {
     return totalPayment = payment * (1 - discount / 100);
 }
 
-function insertToDiscount() {
+function insertDiscountAmount() {
     let getCustomerType = getValueById("customerType");
-    // getValueById("discount") = getCustomerType;
     pushValueById("discount", getCustomerType);
 }
 
@@ -75,10 +75,10 @@ function pushValueById(id, elementValue) {
     return document.getElementById(id).value = elementValue;
 }
 
-function pushTextValueById(id, elementValue) {
+function displayTextById(id, elementValue) {
     return document.getElementById(id).innerText = elementValue;
 }
 
-function getTextOptionSelected(element) {
+function getValueOptionSelected(element) {
     return element.options[element.selectedIndex].text;
 }
