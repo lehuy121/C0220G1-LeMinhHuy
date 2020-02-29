@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator Body Mass Index</title>
+</head>
+<body>
+<script>
+    //can nang / chieu cao
+    /*bmiIndex < 18.5 --> Underweight
+    18.5 <= bmiIndex < 25.0 --> Normal
+    25.0 <= bmiIndex < 30.0 --> Overweight
+    30<= bmiIndex --> Obese
+
+    * */
+    let weight = prompt("Input Weight(kg)");
+    let height = prompt("Input Height(cm)");
+    heightCentimeterToMeter = height/100;
+    let squareHeight = heightCentimeterToMeter * heightCentimeterToMeter;
+    let bmiIndex = weight / squareHeight;
+    alert("BMI Index: " +bmiIndex);
+    switch (true) {
+        case bmiIndex < 18.5:
+            alert("Underweight");
+            break;
+        case bmiIndex < 25.0:
+            alert("Normal");
+            break;
+        case bmiIndex < 30.0:
+            alert("Overweight");
+            break;
+        default:
+            alert("Obese");
+
+    }
+</script>
+</body>
+</html>
