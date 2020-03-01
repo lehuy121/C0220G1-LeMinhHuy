@@ -1,12 +1,12 @@
 function confirmAction() {
     let pressOk = confirm(" Click OK to Confirm, Cancel to Cancel");
     if (pressOk) {
-        displayInformation();
+        displayUser();
     }
 }
 
-function displayInformation() {
-    let getInformation = {
+function displayUser() {
+    let getUser = {
         customerName: getValueById("customerName"),
         idNumber: getValueById("idNumber"),
         email: getValueById("email"),
@@ -36,26 +36,27 @@ function displayInformation() {
         percent: " %",
         usd: " $"
     };
-    displayTextById("showName", label.customerName + getInformation.customerName);
-    displayTextById("showIDNumber", label.idNumber + getInformation.idNumber);
-    displayTextById("showBirth", label.labelBirth + getInformation.dayOfBirth);
-    displayTextById("showEmail", label.email + getInformation.email);
-    displayTextById("showAddr", label.address + getInformation.address);
-    displayTextById("showCustomerType", label.customerType + getInformation.customerType);
-    displayTextById("showDiscount", label.discount + getInformation.discount + label.percent);
-    displayTextById("showQuantity", label.quantity + getInformation.quantity);
-    displayTextById("showRentDays", label.rentDays + getInformation.rentDays);
-    displayTextById("showServiceType", label.serviceType + getInformation.serviceType);
-    displayTextById("showRoomType", label.roomType + getInformation.roomType);
+    displayTextById("showName", label.customerName + getUser.customerName);
+    displayTextById("showIDNumber", label.idNumber + getUser.idNumber);
+    displayTextById("showBirth", label.labelBirth + getUser.dayOfBirth);
+    displayTextById("showEmail", label.email + getUser.email);
+    displayTextById("showAddr", label.address + getUser.address);
+    displayTextById("showCustomerType", label.customerType + getUser.customerType);
+    displayTextById("showDiscount", label.discount + getUser.discount + label.percent);
+    displayTextById("showQuantity", label.quantity + getUser.quantity);
+    displayTextById("showRentDays", label.rentDays + getUser.rentDays);
+    displayTextById("showServiceType", label.serviceType + getUser.serviceType);
+    displayTextById("showRoomType", label.roomType + getUser.roomType);
 
-    let result = paymentCalculator(getInformation.valueServiceType, getInformation.rentDays, getInformation.discount);
+    let result = paymentCalculator(getUser.valueServiceType, getUser.rentDays, getUser.discount);
     displayTextById("totalPay", label.totalPayment + result + label.usd);
 }
 
 function paymentCalculator(serviceType, rentDays, discount) {
     let payment = serviceType * rentDays;
     let totalPayment = 0;
-    return totalPayment = payment * (1 - discount / 100);
+    let percentDiscount = 1 - discount / 100;
+    return totalPayment = payment * percentDiscount;
 }
 
 function insertDiscountAmount() {
