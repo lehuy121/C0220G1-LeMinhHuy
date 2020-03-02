@@ -6,9 +6,30 @@
 </head>
 <body>
 <form>
-    <img id="myImage" src="ball.jpg"/>
+    <img  id="ball" src="ball.jpg"/>
     <p>Click button below to move the image to right</p>
-    <input type="button" value="Click Me"/>
+    <input type="button" value="Move Right" onclick="moveRight();"/>
+    <input type="button" value="Move Left" onclick="moveLeft();"/>
 </form>
+<script>
+    // Làm sử dụng sự kiện click chuột để di chuyển hình ảnh một quả bóng.
+    // Mỗi lần click quả bóng sẽ được di chuyển sang trái/phải một khoảng cách.
+    //var imgObject = null;
+    let imgObject = getElement("ball");
+    function init() {
+        imgObject = getElement("ball");
+        imgObject.style.position = 'relative';
+        imgObject.style.left = '0px';
+    }
+    function moveRight() {
+        imgObject.style.left = parseInt(imgObject.style.left) + 20 + 'px';
+    }function moveLeft() {
+        imgObject.style.left = parseInt(imgObject.style.left) + -20 + 'px';
+    }
+    function getElement(idName){
+        return document.getElementById(idName);
+    }
+    window.onload = init;
+</script>
 </body>
 </html>

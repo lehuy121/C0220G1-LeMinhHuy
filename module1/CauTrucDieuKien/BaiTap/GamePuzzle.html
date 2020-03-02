@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Puzzle</title>
+</head>
+<body>
+<img id="image1" alt = "1" src="images/monkey1.jpg" height="80" width="400" onclick="changeImage(this.id);"/><br>
+<img id="image2" alt = "2" src="images/monkey2.jpg" height="80" width="400" onclick="changeImage(this.id);"/><br>
+<img id="image3" alt = "3" src="images/monkey3.jpg" height="80" width="400" onclick="changeImage(this.id);"/><br>
+<img id="image4" alt = "4" src="images/monkey4.jpg" height="80" width="400" onclick="changeImage(this.id);"/><br>
+<img id="image5" alt = "5" src="images/monkey5.jpg" height="80" width="400" onclick="changeImage(this.id);"/><br>
+<script>
+    let idImage = {
+        name1: "image1",
+        name2: "image2",
+        name3: "image3",
+        name4: "image4",
+        name5: "image5",
+    };
+    let elementImage1 = getElementById(idImage.name1);
+    let elementImage2 = getElementById(idImage.name2);
+    let elementImage3 = getElementById(idImage.name3);
+    let elementImage4 = getElementById(idImage.name4);
+    let elementImage5 = getElementById(idImage.name5);
+
+    function changeImage(id) {
+        if (id === idImage.name1) {
+            if (getSrcImage(elementImage1) === "images/monkey1.jpg") {
+                setSrcImage(elementImage1, "images/cat1.jpg");
+
+            } else if (getSrcImage(elementImage1) === "images/cat1.jpg") {
+                setSrcImage(elementImage1, "images/panda1.jpg");
+            } else if (getSrcImage(elementImage1) === "images/panda1.jpg") {
+                setSrcImage(elementImage1, "images/monkey1.jpg");
+            }
+        } else if (id === idImage.name2) {
+            if (getSrcImage(elementImage2) === "images/monkey2.jpg") {
+                setSrcImage(elementImage2, "images/cat2.jpg");
+            } else if (getSrcImage(elementImage2) === "images/cat2.jpg") {
+                setSrcImage(elementImage2, "images/panda2.jpg");
+            } else if (getSrcImage(elementImage2) === "images/panda2.jpg") {
+                setSrcImage(elementImage2, "images/monkey2.jpg");
+            }
+
+        } else if (id === idImage.name3) {
+            if (getSrcImage(elementImage3) === "images/monkey3.jpg") {
+                setSrcImage(elementImage3, "images/cat3.jpg");
+
+            } else if (getSrcImage(elementImage3) === "images/cat3.jpg") {
+                setSrcImage(elementImage3, "images/panda3.jpg");
+            } else if (getSrcImage(elementImage3) === "images/panda3.jpg") {
+                setSrcImage(elementImage3, "images/monkey3.jpg");
+            }
+
+        } else if (id === idImage.name4) {
+            if (getSrcImage(elementImage4) === "images/monkey4.jpg") {
+                setSrcImage(elementImage4, "images/cat4.jpg");
+
+            } else if (getSrcImage(elementImage4) === "images/cat4.jpg") {
+                setSrcImage(elementImage4, "images/panda4.jpg");
+            } else if (getSrcImage(elementImage4) === "images/panda4.jpg") {
+                setSrcImage(elementImage4, "images/monkey4.jpg");
+            }
+        } else if (id === idImage.name5) {
+            if (getSrcImage(elementImage5) === "images/monkey5.jpg") {
+                setSrcImage(elementImage5, "images/cat5.jpg");
+
+            } else if (getSrcImage(elementImage5) === "images/cat5.jpg") {
+                setSrcImage(elementImage5, "images/panda5.jpg");
+            } else if (getSrcImage(elementImage5) === "images/panda5.jpg") {
+                setSrcImage(elementImage5, "images/monkey5.jpg");
+            }
+        }
+        ///// check here
+        checkCat();
+    }
+
+    function checkCat() {
+      let srcImage1 = getSrcImage(elementImage1);
+        let srcImage2 = getSrcImage(elementImage2);
+        let srcImage3 = getSrcImage(elementImage3);
+        let srcImage4 = getSrcImage(elementImage4);
+        let srcImage5 = getSrcImage(elementImage5);
+        if (srcImage1 === "images/cat1.jpg" && srcImage2 === "images/cat2.jpg" && srcImage3 === "images/cat3.jpg" && srcImage4 === "images/cat4.jpg" && srcImage5 === "images/cat5.jpg") {
+            console.log("abc");
+
+        }
+        /*if((document.getElementById("image1").getAttribute("src")) === "images/cat1.jpg"){
+            if((document.getElementById("image2").getAttribute("src")) === "images/cat2.jpg"){
+                if((document.getElementById("image3").getAttribute("src")) === "images/cat3.jpg"){
+                    if((document.getElementById("image4").getAttribute("src")) === "images/cat4.jpg"){
+                        if((document.getElementById("image5").getAttribute("src")) === "images/cat5.jpg"){
+                            //getElementById(idImage.name1).style.borderColor = "blue";
+                          alert("aaaa");
+                        }
+                    }
+                }
+            }
+        }*/
+
+
+    }
+
+    function setSrcImage(objImage, src) {
+        return objImage.src = src;
+    }
+
+    function getSrcImage(elementImg) {
+        return elementImg.getAttribute("src");
+    }
+    function getAttributeAlt(id) {
+        return document.getElementById(id).getAttribute("alt");
+    }
+
+
+    function getElementById(idName) {
+        return document.getElementById(idName);
+    }
+
+    // window.onload = initImg;
+</script>
+</body>
+</html>
