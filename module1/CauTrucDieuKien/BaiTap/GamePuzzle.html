@@ -5,120 +5,134 @@
     <title>Game Puzzle</title>
 </head>
 <body>
-<img id="image1" alt = "1" src="images/monkey1.jpg" height="80" width="400" onclick="changeImage(this.id);"/><br>
-<img id="image2" alt = "2" src="images/monkey2.jpg" height="80" width="400" onclick="changeImage(this.id);"/><br>
-<img id="image3" alt = "3" src="images/monkey3.jpg" height="80" width="400" onclick="changeImage(this.id);"/><br>
-<img id="image4" alt = "4" src="images/monkey4.jpg" height="80" width="400" onclick="changeImage(this.id);"/><br>
-<img id="image5" alt = "5" src="images/monkey5.jpg" height="80" width="400" onclick="changeImage(this.id);"/><br>
+<img id="image1" style="border: 2px solid white" src="images/panda1.jpg" height="80" width="400"
+     onclick="changeImage(this.id);"/><br>
+<img id="image2" style="border: 2px solid white" src="images/monkey2.jpg" height="80" width="400"
+     onclick="changeImage(this.id);"/><br>
+<img id="image3" style="border: 2px solid white" src="images/cat3.jpg" height="80" width="400"
+     onclick="changeImage(this.id);"/><br>
+<img id="image4" style="border: 2px solid white" src="images/monkey4.jpg" height="80" width="400"
+     onclick="changeImage(this.id);"/><br>
+<img id="image5" style="border: 2px solid white" src="images/cat5.jpg" height="80" width="400"
+     onclick="changeImage(this.id);"/><br>
 <script>
-    let idImage = {
+    let idValue = {
         name1: "image1",
         name2: "image2",
         name3: "image3",
         name4: "image4",
         name5: "image5",
     };
-    let elementImage1 = getElementById(idImage.name1);
-    let elementImage2 = getElementById(idImage.name2);
-    let elementImage3 = getElementById(idImage.name3);
-    let elementImage4 = getElementById(idImage.name4);
-    let elementImage5 = getElementById(idImage.name5);
+    let image = {
+        monkey1: "images/monkey1.jpg",
+        monkey2: "images/monkey2.jpg",
+        monkey3: "images/monkey3.jpg",
+        monkey4: "images/monkey4.jpg",
+        monkey5: "images/monkey5.jpg",
+
+        cat1: "images/cat1.jpg",
+        cat2: "images/cat2.jpg",
+        cat3: "images/cat3.jpg",
+        cat4: "images/cat4.jpg",
+        cat5: "images/cat5.jpg",
+
+        panda1: "images/panda1.jpg",
+        panda2: "images/panda2.jpg",
+        panda3: "images/panda3.jpg",
+        panda4: "images/panda4.jpg",
+        panda5: "images/panda5.jpg",
+    };
+    let elementImage1 = getElementById(idValue.name1);
+    let elementImage2 = getElementById(idValue.name2);
+    let elementImage3 = getElementById(idValue.name3);
+    let elementImage4 = getElementById(idValue.name4);
+    let elementImage5 = getElementById(idValue.name5);
 
     function changeImage(id) {
-        if (id === idImage.name1) {
-            if (getSrcImage(elementImage1) === "images/monkey1.jpg") {
-                setSrcImage(elementImage1, "images/cat1.jpg");
-
-            } else if (getSrcImage(elementImage1) === "images/cat1.jpg") {
-                setSrcImage(elementImage1, "images/panda1.jpg");
-            } else if (getSrcImage(elementImage1) === "images/panda1.jpg") {
-                setSrcImage(elementImage1, "images/monkey1.jpg");
+        if (id === idValue.name1) {
+            if (getImage(elementImage1) === image.monkey1) {
+                setImage(elementImage1, image.cat1);
+            } else if (getImage(elementImage1) === image.cat1) {
+                setImage(elementImage1, image.panda1);
+            } else {
+                setImage(elementImage1, image.monkey1);
             }
-        } else if (id === idImage.name2) {
-            if (getSrcImage(elementImage2) === "images/monkey2.jpg") {
-                setSrcImage(elementImage2, "images/cat2.jpg");
-            } else if (getSrcImage(elementImage2) === "images/cat2.jpg") {
-                setSrcImage(elementImage2, "images/panda2.jpg");
-            } else if (getSrcImage(elementImage2) === "images/panda2.jpg") {
-                setSrcImage(elementImage2, "images/monkey2.jpg");
+        } else if (id === idValue.name2) {
+            if (getImage(elementImage2) === image.monkey2) {
+                setImage(elementImage2, image.cat2);
+            } else if (getImage(elementImage2) === image.cat2) {
+                setImage(elementImage2, image.panda2);
+            } else {
+                setImage(elementImage2, image.monkey2);
             }
-
-        } else if (id === idImage.name3) {
-            if (getSrcImage(elementImage3) === "images/monkey3.jpg") {
-                setSrcImage(elementImage3, "images/cat3.jpg");
-
-            } else if (getSrcImage(elementImage3) === "images/cat3.jpg") {
-                setSrcImage(elementImage3, "images/panda3.jpg");
-            } else if (getSrcImage(elementImage3) === "images/panda3.jpg") {
-                setSrcImage(elementImage3, "images/monkey3.jpg");
+        } else if (id === idValue.name3) {
+            if (getImage(elementImage3) === image.monkey3) {
+                setImage(elementImage3, image.cat3);
+            } else if (getImage(elementImage3) === image.cat3) {
+                setImage(elementImage3, image.panda3);
+            } else {
+                setImage(elementImage3, image.monkey3);
             }
-
-        } else if (id === idImage.name4) {
-            if (getSrcImage(elementImage4) === "images/monkey4.jpg") {
-                setSrcImage(elementImage4, "images/cat4.jpg");
-
-            } else if (getSrcImage(elementImage4) === "images/cat4.jpg") {
-                setSrcImage(elementImage4, "images/panda4.jpg");
-            } else if (getSrcImage(elementImage4) === "images/panda4.jpg") {
-                setSrcImage(elementImage4, "images/monkey4.jpg");
+        } else if (id === idValue.name4) {
+            if (getImage(elementImage4) === image.monkey4) {
+                setImage(elementImage4, image.cat4);
+            } else if (getImage(elementImage4) === image.cat4) {
+                setImage(elementImage4, image.panda4);
+            } else if (getImage(elementImage4) === image.panda4) {
+                setImage(elementImage4, image.monkey4);
             }
-        } else if (id === idImage.name5) {
-            if (getSrcImage(elementImage5) === "images/monkey5.jpg") {
-                setSrcImage(elementImage5, "images/cat5.jpg");
-
-            } else if (getSrcImage(elementImage5) === "images/cat5.jpg") {
-                setSrcImage(elementImage5, "images/panda5.jpg");
-            } else if (getSrcImage(elementImage5) === "images/panda5.jpg") {
-                setSrcImage(elementImage5, "images/monkey5.jpg");
+        } else if (id === idValue.name5) {
+            if (getImage(elementImage5) === image.monkey5) {
+                setImage(elementImage5, image.cat5);
+            } else if (getImage(elementImage5) === image.cat5) {
+                setImage(elementImage5, image.panda5);
+            } else {
+                setImage(elementImage5, image.monkey5);
             }
         }
-        ///// check here
-        checkCat();
+        checkSet();
     }
 
-    function checkCat() {
-      let srcImage1 = getSrcImage(elementImage1);
-        let srcImage2 = getSrcImage(elementImage2);
-        let srcImage3 = getSrcImage(elementImage3);
-        let srcImage4 = getSrcImage(elementImage4);
-        let srcImage5 = getSrcImage(elementImage5);
-        if (srcImage1 === "images/cat1.jpg" && srcImage2 === "images/cat2.jpg" && srcImage3 === "images/cat3.jpg" && srcImage4 === "images/cat4.jpg" && srcImage5 === "images/cat5.jpg") {
-            console.log("abc");
-
+    function checkSet() {
+        let srcImage1 = getImage(elementImage1);
+        let srcImage2 = getImage(elementImage2);
+        let srcImage3 = getImage(elementImage3);
+        let srcImage4 = getImage(elementImage4);
+        let srcImage5 = getImage(elementImage5);
+        if (srcImage1 === image.cat1 && srcImage2 === image.cat2 && srcImage3 === image.cat3 && srcImage4 === image.cat4 && srcImage5 === image.cat5) {
+            changeColor();
+        } else if (srcImage1 === image.panda1 && srcImage2 === image.panda2 && srcImage3 === image.panda3 && srcImage4 === image.panda4 && srcImage5 === image.panda5) {
+            changeColor();
+        } else if (srcImage1 === image.monkey1 && srcImage2 === image.monkey2 && srcImage3 === image.monkey3 && srcImage4 === image.monkey4 && srcImage5 === image.monkey5) {
+            changeColor();
+        } else {
+            resetColor();
         }
-        /*if((document.getElementById("image1").getAttribute("src")) === "images/cat1.jpg"){
-            if((document.getElementById("image2").getAttribute("src")) === "images/cat2.jpg"){
-                if((document.getElementById("image3").getAttribute("src")) === "images/cat3.jpg"){
-                    if((document.getElementById("image4").getAttribute("src")) === "images/cat4.jpg"){
-                        if((document.getElementById("image5").getAttribute("src")) === "images/cat5.jpg"){
-                            //getElementById(idImage.name1).style.borderColor = "blue";
-                          alert("aaaa");
-                        }
-                    }
-                }
-            }
-        }*/
-
-
     }
 
-    function setSrcImage(objImage, src) {
+    function changeColor() {
+        elementImage1.style.borderColor = "blue";
+        elementImage2.style.borderColor = "blue";
+        elementImage3.style.borderColor = "blue";
+        elementImage4.style.borderColor = "blue";
+        elementImage5.style.borderColor = "blue";
+    }
+    function resetColor() {
+        elementImage1.style.borderColor = "white";
+        elementImage2.style.borderColor = "white";
+        elementImage3.style.borderColor = "white";
+        elementImage4.style.borderColor = "white";
+        elementImage5.style.borderColor = "white";
+    }
+    function setImage(objImage, src) {
         return objImage.src = src;
     }
-
-    function getSrcImage(elementImg) {
+    function getImage(elementImg) {
         return elementImg.getAttribute("src");
     }
-    function getAttributeAlt(id) {
-        return document.getElementById(id).getAttribute("alt");
-    }
-
-
     function getElementById(idName) {
         return document.getElementById(idName);
     }
-
-    // window.onload = initImg;
 </script>
 </body>
 </html>
