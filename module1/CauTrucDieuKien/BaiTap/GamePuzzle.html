@@ -16,13 +16,12 @@
 <img id="image5" style="border: 2px solid white" src="images/cat5.jpg" height="80" width="400"
      onclick="changeImage(this.id);"/><br>
 <script>
-    let idValue = {
-        name1: "image1",
-        name2: "image2",
-        name3: "image3",
-        name4: "image4",
-        name5: "image5",
-    };
+    let image1 = "image1";
+    let image2 = "image2";
+    let image3 = "image3";
+    let image4 = "image4";
+    let image5 = "image5";
+
     let image = {
         monkey1: "images/monkey1.jpg",
         monkey2: "images/monkey2.jpg",
@@ -42,14 +41,14 @@
         panda4: "images/panda4.jpg",
         panda5: "images/panda5.jpg",
     };
-    let elementImage1 = getElementById(idValue.name1);
-    let elementImage2 = getElementById(idValue.name2);
-    let elementImage3 = getElementById(idValue.name3);
-    let elementImage4 = getElementById(idValue.name4);
-    let elementImage5 = getElementById(idValue.name5);
+    let elementImage1 = getElementById(image1);
+    let elementImage2 = getElementById(image2);
+    let elementImage3 = getElementById(image3);
+    let elementImage4 = getElementById(image4);
+    let elementImage5 = getElementById(image5);
 
-    function changeImage(id) {
-        if (id === idValue.name1) {
+    function changeImage(click) {
+        if (click === image1) {
             if (getImage(elementImage1) === image.monkey1) {
                 setImage(elementImage1, image.cat1);
             } else if (getImage(elementImage1) === image.cat1) {
@@ -57,7 +56,7 @@
             } else {
                 setImage(elementImage1, image.monkey1);
             }
-        } else if (id === idValue.name2) {
+        } else if (click === image2) {
             if (getImage(elementImage2) === image.monkey2) {
                 setImage(elementImage2, image.cat2);
             } else if (getImage(elementImage2) === image.cat2) {
@@ -65,7 +64,7 @@
             } else {
                 setImage(elementImage2, image.monkey2);
             }
-        } else if (id === idValue.name3) {
+        } else if (click === image3) {
             if (getImage(elementImage3) === image.monkey3) {
                 setImage(elementImage3, image.cat3);
             } else if (getImage(elementImage3) === image.cat3) {
@@ -73,15 +72,15 @@
             } else {
                 setImage(elementImage3, image.monkey3);
             }
-        } else if (id === idValue.name4) {
+        } else if (click === image4) {
             if (getImage(elementImage4) === image.monkey4) {
                 setImage(elementImage4, image.cat4);
             } else if (getImage(elementImage4) === image.cat4) {
                 setImage(elementImage4, image.panda4);
-            } else if (getImage(elementImage4) === image.panda4) {
+            } else {
                 setImage(elementImage4, image.monkey4);
             }
-        } else if (id === idValue.name5) {
+        } else if (click === image5) {
             if (getImage(elementImage5) === image.monkey5) {
                 setImage(elementImage5, image.cat5);
             } else if (getImage(elementImage5) === image.cat5) {
@@ -117,6 +116,7 @@
         elementImage4.style.borderColor = "blue";
         elementImage5.style.borderColor = "blue";
     }
+
     function resetColor() {
         elementImage1.style.borderColor = "white";
         elementImage2.style.borderColor = "white";
@@ -124,12 +124,15 @@
         elementImage4.style.borderColor = "white";
         elementImage5.style.borderColor = "white";
     }
+
     function setImage(objImage, src) {
         return objImage.src = src;
     }
+
     function getImage(elementImg) {
         return elementImg.getAttribute("src");
     }
+
     function getElementById(idName) {
         return document.getElementById(idName);
     }
