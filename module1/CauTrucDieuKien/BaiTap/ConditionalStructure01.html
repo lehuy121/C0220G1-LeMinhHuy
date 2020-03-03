@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice conditional structure 01</title>
+</head>
+<body>
+<script>
+    // 01 -- DONE
+   /*let numberA = prompt("Enter number A");
+   let numberB = prompt("Enter number B");
+   let divide = numberA % numberB;
+   if(divide === 0){
+       alert("A divide by B: "+divide);
+   }else {
+       alert("A not divide by B: "+divide);
+   }*/
+   // 02 -- DONE
+
+    /*let age = prompt("Enter age");
+    if(age <= 15){
+        alert("Age: "+age+"You can not go to 10th grade");
+    }else{
+        alert("Age: "+age+"You can go to 10th grade");
+    }*/
+
+    // 03 - DONE
+   /* let number = prompt("Enter Integer Number: ");
+    if(number <= 0){
+        alert(number +": is not greater than 0")
+    }else{
+        alert(number +": is greater than 0")
+    }*/
+
+    //04 - DONE
+
+   /* let number1 = parseInt(prompt("Enter First Number: "));
+    let number2 = parseInt(prompt("Enter Second Number: "));
+    let number3 = parseInt(prompt("Enter Third Number: "));
+    if(number1 > number2){
+        alert(number1 + "Second Number is Max")
+    }else if(number2 > number3){
+        alert(number2 + "Third Number is Max")
+    }else{
+        alert(number3 + "First is Max")
+    }*/
+
+    //05 - Academic rank : DONE
+    /*let testMarks = parseInt(prompt("Enter Test Marks"));
+    let middleMarks = parseInt(prompt("Enter Middle Marks"));
+    let finalMarks = parseInt(prompt("Enter Final Marks"));
+    const TEST = 1;
+    const MIDDLE = 2;
+    const FINAL = 3;
+    let totalFactor = TEST + MIDDLE + FINAL;
+    let sumMarks = testMarks * TEST + middleMarks * MIDDLE + finalMarks * FINAL;
+    let finalAverage = sumMarks/totalFactor;
+    if(finalAverage >= 8){
+        alert(finalAverage +" :is Good")
+    } else if(finalAverage >=5){
+        alert(finalAverage +" :is Normal")
+    }else {
+        alert(finalAverage +" :is Bad")
+    }*/
+
+    //06 - DONE
+
+    /*let salesNum = parseInt(prompt("Enter Sales Number"));
+    if(salesNum > 10000000){
+        let commission = salesNum * 10/100;
+        alert(commission);
+    }else if (salesNum >= 7000000){
+        let commission = salesNum *5/100;
+        alert(commission);
+    }*/
+
+    //07 phone charge
+    let minutes = parseInt(prompt("Enter minutes"));
+    let price50 = 50 * 600;
+    const FEE_REQUIRED = 25000;
+    if(minutes <= 50){
+        let result1 = minutes * 600 + FEE_REQUIRED;
+        alert(result1);
+    }else if(minutes <= 200){
+        let result2 = (price50 + (minutes - 50)* 400) + FEE_REQUIRED;
+        alert(result2);
+    }else {
+        let result3 = (price50 + 150 * 400 + (minutes -200) * 200) + FEE_REQUIRED;
+        alert(result3);
+    }
+
+</script>
+</body>
+</html>
