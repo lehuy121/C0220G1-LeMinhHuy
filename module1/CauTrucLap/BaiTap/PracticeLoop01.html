@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Loop 01</title>
+</head>
+<body>
+<script>
+    //Bài 1: Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là đã hoàn thành.
+    // DONE
+    /*let number = 100;
+    let result = "";
+    let flag = false;
+    for (let count = 1; count < number; count++) {
+        result = count;
+        if (result === 99) {
+            flag = true;
+            break;
+        }
+    }
+    if (flag) {
+        alert(result +": "+ "Finish");
+    }*/
+
+    // 02 Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập.
+    // Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ.
+    // * Mo Rong :   20 < Temperature < 100 --- Nhiet Do On Dinh
+    /*let input = "";
+    input = parseInt(prompt("Input Current Temperature"));
+    do {
+        if(input > 100){
+            input = parseInt(prompt("Lower Current Temperature"));
+        }else if(input < 20){
+            input = parseInt(prompt("Upper Current Temperature"));
+        }
+    } while (input < 20 || input > 100);
+        alert("Temperature is OK");*/
+    // Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.
+
+    /*let result = 1;
+    let  first=0, second=1, sum=0;
+
+    for(let i=0; i<=20; i++) {
+        sum = first + second;
+        result = result + " " + sum;
+        //console.log("Vong Lap "+ i +result);
+        first = second;
+        second = sum;
+    }
+   // console.log(result);
+    alert(result + "\n");*/
+    //-----cach2------------//
+    /* let  first=0, second=1;
+    let temp=[];
+    temp[0] = 0;
+    temp[1] = 1;
+
+    or(let i=2; i<=20; i++) {
+        /!*temp [i]= temp[i-2] + temp[i-1];
+        result+= temp [i];
+       console.log(temp[i]);*!/
+    }*/
+    //-----cach2------------//
+    //04 Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.
+    /* let  first=0, second=1, sum=0;
+     while (true){
+         sum = first + second;
+         first = second;
+         second = sum;
+         document.write(sum);
+         if(sum % 5 ===0){
+             alert(sum);
+             break;
+         }
+     }*/
+    //Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.
+    let a,b, result;
+    a=0;
+    b=1;
+    result =b;
+    let sumFibonacci = 0;
+    for (let i = 1; i <= 20; i++) {
+        document.write("Fibonacci number "+i +": = ");
+        document.write(  result + " <br>");
+        sumFibonacci += result;
+        result = a + b;
+        a = b;
+        b = result;
+    }
+   document.write("Sum Fibonacci: "+sumFibonacci.toString());
+</script>
+</body>
+</html>

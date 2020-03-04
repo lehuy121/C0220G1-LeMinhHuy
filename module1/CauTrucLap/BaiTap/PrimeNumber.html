@@ -6,7 +6,29 @@
 </head>
 <body>
 <script>
-
+    // Dinh nghia 2: SỐ 2 LÀ SỐ CHẴN DUY NHẤT LÀ SỐ NGUYÊN TỐ
+    // ==> CÁC SỐ CHẴN CÒN LẠI KHÔNG PHẢI LÀ SỐ NGUYÊN TỐ  --> TÌM SỐ LẼ
+    // Dinh nghia 3: N là số nguyên tố : thì trong khoảng từ 2 -> căn bậc 2 của n sẽ KHÔNG TỒN TẠI SỐ MÀ N CHIA HẾT (Math.sqrt(n))
+   // let num = parseInt(prompt("Input Number"));
+    let count = 0;
+    let num = 2;
+    let flag = true;
+    let result="";
+        while(count<100) {
+            flag = true;
+            for (let i = 3; i <= Math.sqrt(num); i+=2) {
+                if (num % i === 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                count++;
+                result += num +" ";
+            }
+                num++;
+        }
+        alert("First 20 Prime: "+"\n"+result);
     // Dinh nghia 1: So nguyen to la so > 1 va % 1 va chinh no.
     // ==>Neu trong khoang tu 2 đến n-1 : TỒN TẠI 1 SỐ MÀ n CHIA HẾT ----> n ko phải là số nguyên tố
     /*let num = parseInt(prompt("Input Number"));
@@ -27,34 +49,6 @@
     }else{
         alert(num + ": is not a Prime Number")
     }*/
-
-    // Dinh nghia 2: SỐ 2 LÀ SỐ CHẴN DUY NHẤT LÀ SỐ NGUYÊN TỐ
-    // ==> CÁC SỐ CHẴN CÒN LẠI KHÔNG PHẢI LÀ SỐ NGUYÊN TỐ  --> TÌM SỐ LẼ
-    // Dinh nghia 3: N là số nguyên tố : thì trong khoảng từ 2 -> căn bậc 2 của n sẽ KHÔNG TỒN TẠI SỐ MÀ N CHIA HẾT (Math.sqrt(n))
-    let num = parseInt(prompt("Input Number"));
-    // let count = 0;
-    let flag = true; // neu true thi ---> so nguyen to
-    if (num < 2) {
-        flag = false;
-    } else if (num === 2) {
-        flag = true
-    } else if (num % 2 === 0) {
-        flag = false;
-    } else {
-        for (let i = 3; i < Math.sqrt(num); i += 2) {
-            if (num % i === 0) {
-                flag = false;
-                break;
-            }
-        }
-    }
-    if (flag) {
-        alert(num + ": is a Prime Number")
-    } else {
-        alert(num + ": is not a Prime Number")
-    }
-
-
 </script>
 </body>
 </html>

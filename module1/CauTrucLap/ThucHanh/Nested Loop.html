@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nested Loop</title>
+</head>
+<body>
+<script>
+    // for nested loop
+    /*let display = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
+    for(let row=1; row<=10; row++){
+        display += "<tr>";
+        for(let col=1; col<=10; col++){
+            display+= "<td>" + row * col +"</td>"
+        }
+        display += "<tr>";
+    }
+    display += "</table>";
+    document.write(display);*/
+
+    //while nested loop
+    let display, row, col, title;
+    title = "<h2> While Nested Loop Sample</h2>";
+    display = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
+    row = col =1;
+    while(row <=10){
+        display += "<tr>";
+        while(col<=10){
+            display+= "<td>" + row * col +"</td>";
+            col++;
+        }
+        display += "<tr>";
+        col=1;
+        row++;
+    }
+    display += "</table>";
+    document.write(title);
+    document.write(display);
+</script>
+
+</body>
+</html>

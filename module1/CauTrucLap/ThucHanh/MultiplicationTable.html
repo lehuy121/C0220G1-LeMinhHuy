@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Table</title>
+</head>
+<body>
+<script>
+    let title, table, row, col, result, cal;
+    title = "<h2> Multiplication Table</h2>";
+    table = "<table border='1' width='auto' cellspacing='0' cellpadding='3'>";
+
+    for (row = 1; row < 10; row++) {
+        table += "<tr>";
+        for (col = 2; col < 10; col++) {
+            result = row * col;
+            table += "<td>" + col + "x" + row + "=" + result + "</td>";
+        }
+      table += "<tr>";
+    }
+    document.write(title);
+    document.write(table);
+</script>
+</body>
+</html>
