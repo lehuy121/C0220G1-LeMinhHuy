@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let discountByAddress = {
+        daNang: 20,
+        hue: 10,
+        quangNgai: 5
+    };
+    let discountByRentDays ={
+        above7: 30,
+        range5To7: 30,
+        range2To4: 10
+    };
+    let discountByCustomerType ={
+        diamond: 15,
+        platinum: 10,
+        gold: 5,
+        silver: 2,
+        member: 1
+    };
+  // let sum = discountPaymentCalculate(discountByAddress.daNang , discountByRentDays.above7 , discountByCustomerType.diamond);
+    let newRentDays = parseInt(prompt("nhap so ngay thue"));
+   document.write("SUM: "+discountPaymentCalculate(discountByAddress.daNang , discountByRentDays.above7 , discountByCustomerType.diamond));
+   document.write("SUM: "+discountPaymentCalculate(discountByAddress.daNang , discountByRentDays.range2To4 , discountByCustomerType.diamond));
+
+
+    function discountPaymentCalculate(discountByAddress, discountByRentDays, discountByCustomerType) {
+// Số tiền giảm giá = giảm giá theo địa chỉ + giảm giá theo thời gian lưu trú + giảm giá theo loại Customer
+        return discountByAddress + discountByRentDays + discountByCustomerType;
+    }
+</script>
+</body>
+</html>
