@@ -6,7 +6,21 @@
 </head>
 <body>
 <script>
-   // Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.
+    // Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.
+    let count = 0;
+    let number = 0;
+    let sum = 0;
+    while (count < 30) {
+        if (number % 7 === 0) {
+            document.write(number + " <br>");
+            console.log(count);
+            sum += number;
+            count++;
+        }
+        number++;
+    }
+    document.write("Sum: " + sum);
+
 
 </script>
 </body>

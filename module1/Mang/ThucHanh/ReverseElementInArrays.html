@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse Element In Arrays</title>
+</head>
+<body>
+<h2>Reverse Element In Arrays </h2>
+<script>
+    let numberArrays = [-3, 5, 1, 3, 2, 10];
+    let first =0 ;
+    let last = numberArrays.length - 1;
+    let temp;
+    document.write("Arrays: "+numberArrays.toString()+"<br>");
+    while(first < last){
+        // thuat toan swap
+         temp = numberArrays[first];
+        numberArrays[first] = numberArrays[last];
+        numberArrays[last] = temp;
+        first ++;  // chay tu dau den cuoi
+        last --; // chay tu cuoi den dau
+    }
+    document.write("Arrays after reverse: "+numberArrays.toString());
+</script>
+</body>
+</html>

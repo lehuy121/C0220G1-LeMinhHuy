@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Value In Arrays And Display Max Value</title>
+</head>
+<body>
+<script>
+   /* let value = parseInt(prompt("Enter a number: "));
+    let arrays = [-3, 5, 1, 3, 2, 10];
+    for (let i = 0; i < arrays.length; i++) {
+        if(value === arrays[i]){
+            document.write("Number: "+arrays[i] + "found at the index: "+i);
+        }
+    }*/
+
+   // tim max array
+   let array = [-3, 5, 1, 3, 2, 10];
+   let maxNum = array[0];
+   for (let i = 0; i < array.length; i++) {
+           document.write(array[i].toString() + "<br>");
+        if(maxNum < array[i]){
+            maxNum = array[i];
+        }
+   }
+   document.write("Max Number in Array: "+maxNum.toString());
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess The Number</title>
+</head>
+<body>
+<h2>"Guess The Number" Game</h2>
+<p>How to play this game: Click button play then input whatever number you want to guess from 0 to 9</p>
+<button id="play" onclick="playGame();">Play Now !!!</button>
+<script>
+    function playGame() {
+        let inputNumber;
+        let NPC;
+        while (1) {
+            inputNumber = parseInt(prompt("Enter the number you guess"));
+            NPC = randomNumber();
+            console.log(NPC);
+            if (inputNumber > NPC) {
+                alert(inputNumber + ": You input Number is greater");
+            } else if (inputNumber < NPC) {
+                alert(inputNumber + ": You input Number is lesser");
+            } else if (inputNumber === NPC) {
+                alert(" You input Number is: " + inputNumber + "NPC is: "+NPC+ " Congratulations !!!!!!!");
+                break;
+            }
+        }
+
+        function randomNumber() {
+            return Math.floor(Math.random() * 10);
+        }
+    }
+</script>
+</body>
+</html>

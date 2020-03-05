@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create And Manipulate Arrays</title>
+    <style>
+        body {padding-top:50px}
+    </style>
+</head>
+<body>
+<input id="input" type="text">
+<button id="add" onclick="addElementToArrays();">Add</button>
+<button id="display" onclick="displayArrays();">Display</button>
+<div id="result"></div>
+<script>
+    let x=0;
+    let arrays = Array();
+
+function addElementToArrays(){
+    arrays[x] = document.getElementById("input").value;
+    console.log(arrays[x]);
+    x++;
+    document.getElementById("input").value = "";
+}
+function displayArrays(){
+    let display = "<hr/>";
+    for(let i=0; i<arrays.length;i++){
+        display += "Element "+i+ ": = " +arrays[i] + "<br>";
+    }
+    document.getElementById("result").innerHTML = display;
+}
+
+</script>
+</body>
+</html>
