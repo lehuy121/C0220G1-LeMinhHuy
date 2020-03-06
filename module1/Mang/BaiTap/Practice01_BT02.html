@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau.
+        Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.*/
+    let arrayNumber = [];
+    let element = 0;
+
+    function addElementToArray() {
+        let input;
+        for (let i = 0; i < 5; i++) {
+            input = parseInt(prompt("Input Number"));
+            console.log(input);
+            arrayNumber[element] = input;
+            element++;
+        }
+        displayResult();
+    }
+
+    function findMax() {
+        let maxNum = arrayNumber[0];
+        for (let i = 0; i < arrayNumber.length; i++) {
+            if (maxNum < arrayNumber[i]) {
+                maxNum = arrayNumber[i];
+            }
+        }
+        return maxNum;
+    }
+
+    function displayResult() {
+        document.write("<h2>"+"Max number: " + findMax()+"</h2>");
+    }
+
+    window.onload = addElementToArray;
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Bài 3- Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong mảng đó.
+        In ra giá trị trung bình của các phần tử trong mảng.*/
+    let arrayNumber = [];
+    let element = 0;
+    let input;
+
+    function addElementToArray() {
+        for (let i = 0; i < 10; i++) {
+            input = parseInt(prompt("Input Number"));
+            arrayNumber[element] = input;
+            element++;
+        }
+        display();
+    }
+
+    function findMax() {
+        let maxNumber = arrayNumber[0];
+        for (let i = 0; i < arrayNumber.length; i++) {
+            if (maxNumber < arrayNumber[i]) {
+                maxNumber = arrayNumber[i];
+            }
+        }
+        return maxNumber;
+    }
+
+    function averageArrayNumber() {
+        let sum = 0;
+        let result=0;
+        for (let i = 0; i < arrayNumber.length; i++) {
+            sum += arrayNumber[i];
+        }
+        console.log(sum);
+        result = sum/(arrayNumber.length);
+        return result;
+    }
+
+    function display() {
+        document.write("<h2>" + "Max: " + findMax() + "</h2>" + "<br>");
+        document.write("<h2>" + "Average: " + averageArrayNumber() + "</h2>");
+    }
+
+    window.onload = addElementToArray;
+</script>
+</body>
+</html>

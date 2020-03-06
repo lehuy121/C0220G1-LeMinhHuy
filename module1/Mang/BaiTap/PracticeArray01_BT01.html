@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Array 01</title>
+</head>
+<body>
+<script>
+    //Bài 1- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử.
+    // Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.
+    let element = 0;
+    let arrayNumber = [];
+    let input;
+    let count = 0;
+
+    function addElementToArray() {
+        for (let i = 0; i <= 4; i++) {
+            input = parseInt(prompt("Input Number"));
+            arrayNumber[element] = input;
+            element++;
+            console.log(element);
+        }
+        displayResult();
+    }
+    function calculator() {
+        for (let i = 0; i < arrayNumber.length; i++) {
+            if (arrayNumber[i] >= 10) {
+                console.log(arrayNumber[i]);
+                count++;
+            }
+        }
+        return count;
+    }
+    function displayResult(){
+        document.write("Array number: " + arrayNumber.join(" ")+"<br>");
+        document.write("There are: " + calculator() + " number greater or equal 10");
+    }
+
+    window.onload = addElementToArray;
+</script>
+</body>
+</html>

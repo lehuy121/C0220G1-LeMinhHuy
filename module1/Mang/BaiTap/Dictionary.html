@@ -6,7 +6,7 @@
 </head>
 <body>
 <input id="vietnamese" type="text"><br>
-<button onclick="translate();">Translate To English</button><br>
+<button onclick="translate1();">Translate To English</button><br>
 <input id="english" type="text">
 <script>
     let vietnamArray = ["xin chao", "cam on", "tam biet"];
@@ -14,15 +14,20 @@
     let vietnamese = document.getElementById("vietnamese");
     let english = document.getElementById("english");
     let result;
-    function translate(){
+    let check =false;
+    function translate1(){
             for(let i=0; i<vietnamArray.length; i++){
-                if(vietnamese.value === vietnamArray[i] && vietnamArray.length === englishArray.length){
+                if(vietnamese.value === vietnamArray[i]) {
+
                     result = englishArray[i];
-                    english.value = result;
+                    check = true;
                     break;
-                }else if(vietnamese.value !== vietnamArray[i]){
-                    english.value = "Not Found";
                 }
+            }
+            if(check) {
+                english.value = result;
+            }else if(!check){
+                alert("Not Found");
             }
     }
 </script>
