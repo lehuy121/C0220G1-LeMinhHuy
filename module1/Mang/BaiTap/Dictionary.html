@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+</head>
+<body>
+<input id="vietnamese" type="text"><br>
+<button onclick="translate();">Translate To English</button><br>
+<input id="english" type="text">
+<script>
+    let vietnamArray = ["xin chao", "cam on", "tam biet"];
+    let englishArray = ["hello", "thank you", "goodbye"];
+    let vietnamese = document.getElementById("vietnamese");
+    let english = document.getElementById("english");
+    let result;
+    function translate(){
+            for(let i=0; i<vietnamArray.length; i++){
+                if(vietnamese.value === vietnamArray[i] && vietnamArray.length === englishArray.length){
+                    result = englishArray[i];
+                    english.value = result;
+                    break;
+                }else if(vietnamese.value !== vietnamArray[i]){
+                    english.value = "Not Found";
+                }
+            }
+    }
+</script>
+</body>
+</html>

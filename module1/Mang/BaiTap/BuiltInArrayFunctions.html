@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Functions</title>
+</head>
+<body>
+<script>
+    // Bài 1: Viết một chương trình Javascript để nối tất cả các phần tử trong một mảng chuỗi lại với nhau.
+    // Ví dụ có mảng chuỗi như sau: myColor = ["Red", "Green", "White", "Black"];
+    // Sau khi thực thi chương trình sẽ trả về dạng như sau : "Red,Green,White,Black"
+    /* let myColor = ["Red", "Green", "White", "Black"];
+     document.write(myColor.toString() + "<br>");
+     document.write(myColor.join() + "<br>");
+     document.write(myColor.join(" ") + "<br>");*/
+
+    // Bài 2: Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2  số chẵn.
+    // Ví dụ nếu bạn nhập vào 025468 thì kết quả của chương trình sẽ là 0-254-6-8.
+    // DONE
+
+    /*  ---chen dau gach vao giua 2 so chan---
+    let numberArr = [0, 2, 5, 4, 6, 8,10,11,12,32,33,100,200,4,5,6,8,10,2];
+     let prev = '';
+     let newString = '';
+     let current;
+     for (let i = 0; i < numberArr.length; i++) {
+         numberArr[i] % 2 === 0 ? current = 'even' : current = 'odd';
+         if (current === 'even' && prev === 'even') {
+             newString = newString + '-' + numberArr[i];
+             prev = 'even';
+         } else {
+             newString = newString + numberArr[i];
+             prev = current;
+         }
+     }
+    document.write(newString);*/
+
+    //Bài 3: Viết một chương trình nhập vào một chuỗi và chuyển các ký tự chữ thường trong chuỗi vừa nhập sang thành dạng chữ hoa.
+    // Ví dụ: nếu bạn nhập vào chuỗi 'The Quick Brown Fox' kết quả của chương trình là 'tHE QUICK BROWN FOX'.
+    let element = 0;
+    let array = Array();
+    let toUpper;
+    let input = prompt("Enter: ");
+    array[element] = input;
+    console.log(array[element]);
+    toUpper = function (x) {
+        return x.toUpperCase();
+    };
+    array = array.map(toUpper);
+    document.write(array);
+
+</script>
+</body>
+</html>
