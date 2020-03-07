@@ -32,8 +32,8 @@ let priceServiceType = {
     house: 300,
     room: 100
 };
-let discountPayment = discountAmountCalculate(discountByAddress.daNang, discountByRentDays.above7, discountByCustomerType.diamond);
-let payment = paymentCalculate(priceServiceType.villa, customer.rendDays, discountPayment);
+let discountPayment = calculateDiscountAmount(discountByAddress.daNang, discountByRentDays.above7, discountByCustomerType.diamond);
+let payment = calculatePayment(priceServiceType.villa, customer.rendDays, discountPayment);
 let downLine = "\n";
 let showCustomerName = "Customer Name: " + customer.customerName + downLine;
 let showIdNumber = "ID Number: " + customer.idNumber + downLine;
@@ -56,7 +56,7 @@ let editRentDays = "Enter 4: RentDays" + downLine;
 
 
 if (menu === "1") {
-    alert(showInformation());
+    alert(displayInformation());
 } else if (menu === "2") {
     let editMenu = prompt(editName + editBirth + editAdds + editRentDays);
     if (editMenu === "1") {
@@ -82,7 +82,7 @@ if (menu === "1") {
     }
 }
 
-function showInformation() {
+function displayInformation() {
     return showCustomerName + showIdNumber + showBirth + showEmail + showAddress + showCustomerType + showDiscount + showQuantity + showRendDays + showServiceType + showRoomType + showPayment;
 }
 
@@ -97,23 +97,20 @@ function updateBirth(newBirth) {
 function updateAddress(newAddress) {
     return showCustomerName + showIdNumber + showBirth + showEmail + "Address: " + newAddress + downLine + showCustomerType + showDiscount + showQuantity + showRendDays + showServiceType + showRoomType + showPayment;
 }
-function paymentCalculate(priceServiceType, rentDays, discountAmount) {
+function calculatePayment(priceServiceType, rentDays, discountAmount) {
 //Số tiền phải trả  = giá loại dịch vụ * số ngày - giảm giá
     return priceServiceType * rentDays - discountAmount;
 }
-function discountAmountCalculate(discountByAddress, discountByRentDays, discountByCustomerType) {
+function calculateDiscountAmount(discountByAddress, discountByRentDays, discountByCustomerType) {
 // Số tiền giảm giá = giảm giá theo địa chỉ + giảm giá theo thời gian lưu trú + giảm giá theo loại Customer
     return discountByAddress + discountByRentDays + discountByCustomerType;
 }
 function updateRentDays(newRentDays, discountRange) {
-    let newDiscountAmountRange = discountAmountCalculate(discountByAddress.daNang, discountRange, discountByCustomerType.diamond);
-    let newPaymentByRentDays = paymentCalculate(priceServiceType.villa, newRentDays, newDiscountAmountRange);
+    let newDiscountAmountRange = calculateDiscountAmount(discountByAddress.daNang, discountRange, discountByCustomerType.diamond);
+    let newPaymentByRentDays = calculatePayment(priceServiceType.villa, newRentDays, newDiscountAmountRange);
     return alert(showCustomerName + showIdNumber + showBirth + showEmail + showAddress + showCustomerType + "New Discount: " + newDiscountAmountRange + downLine + showQuantity + "New Rent Days: " + newRentDays + downLine + showServiceType + showRoomType + "New Payment: " + newPaymentByRentDays);
 }
 
-function updateRentDaysRangeAbove7(newRentDays) {
-
-}
 
 
 

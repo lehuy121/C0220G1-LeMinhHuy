@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count the number of vowels</title>
+</head>
+<body>
+<script>
+    //Bài 5- Viết chương trình đếm số nguyên âm trong một chuỗi
+    let inputStringArr=[];
+    let inputString;
+    let vowelListArr = ["a","e","i","o","u","A","E","I","O","U"];
+    function inputElementToArr(){
+        inputString = prompt("Input");
+        inputStringArr = inputString.split("");
+            console.log(inputStringArr.length);
+
+        displayResult();
+    }
+    function countVowelsNumber(inputStringArr,vowelListArr){
+        let count=0;
+        for(let i=0;i<inputStringArr.length;i++){
+            for(let j=0; j<vowelListArr.length;j++){
+                if(inputStringArr[i] === vowelListArr[j]){
+                    count++
+                }
+            }
+        }
+    return count;
+    }
+    function displayResult(){
+        document.write("<h2>"+"Vowels list: "+vowelListArr+"</h2>"+"<br>");
+        document.write("<h2>"+"String input is: "+inputString+"</h2>"+"<br>");
+        document.write("<h2>"+"After add to Array: "+inputStringArr+"<h2>");
+        document.write("<h2>"+"Number of Vowels : "+countVowelsNumber(inputStringArr, vowelListArr)+"</h2>");
+        countVowelsNumber();
+    }
+    window.onload = inputElementToArr;
+</script>
+</body>
+</html>

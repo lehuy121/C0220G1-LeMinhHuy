@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Two-Dimensional Array</title>
+</head>
+<body>
+<script>
+    let limit = 3;
+    let arrays = new Array(limit);
+    let input;
+    // loop to create 2D arrays using 1D arrays
+    for (let cols = 0; cols < arrays.length; cols++) {
+        arrays[cols] = [];
+    }
+
+    function input2DArrays() {
+        for (let i = 0; i < limit; i++) {
+            for (let j = 0; j < limit; j++) {
+                input = prompt("Input Number: ");
+                arrays[i][j] = input;
+            }
+        }
+        display();
+    }
+
+    function sumAllElements() {
+        let sum = 0;
+        for (let i = 0; i < arrays.length; i++) {
+            for (let j = 0; j < arrays.length; j++) {
+                sum += parseInt(arrays[i][j]);
+            }
+        }
+        return sum;
+    }
+
+    function sumFirstRow() {
+        let sum = 0;
+        for (let i = 0; i < arrays.length; i++) {
+            sum += parseInt(arrays[0][i]);
+        }
+        return sum;
+    }
+
+    function sumFirstCol() {
+        let sum = 0;
+        for (let i = 0; i < arrays.length; i++) {
+            sum += parseInt(arrays[i][0]);
+        }
+        return sum;
+    }
+
+    function sumDiagonal() {
+        let sumLeftToRight = 0;
+        let sumRightToLeft = 0;
+        let col = 0;
+        for (let row = 0; row < arrays.length; row++) {
+            col = arrays.length - row - 1;
+            sumLeftToRight += parseInt(arrays[row][row]);
+            sumRightToLeft += parseInt(arrays[row][col]);
+        }
+        return (sumLeftToRight + sumRightToLeft);
+    }
+
+    function display() {
+        for (let i = 0; i < arrays.length; i++) {
+            for (let j = 0; j < arrays.length; j++) {
+                document.write(arrays[i][j] + " ");
+            }
+            document.write("<br>");
+        }
+        document.write("<h2>" + "Sum first row: " + sumFirstRow(0) + "</h2>");
+        document.write("<h2>" + "Sum first col: " + sumFirstCol(0) + "</h2>");
+        document.write("<h2>" + "Sum all element: " + sumAllElements() + "</h2>");
+        document.write("<h2>" + "Sum diagonal: " + sumDiagonal() + "</h2>");
+    }
+
+    input2DArrays();
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverser Element In Array</title>
+</head>
+<body>
+<script>
+    //Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.
+    let arrayNumber = [];
+    let element = 0;
+    let input;
+
+    function addNumberArray() {
+        for (let i = 0; i < 6; i++) {
+            input = prompt("Input Integer Array");
+            arrayNumber[element] = input;
+            element++;
+        }
+        display();
+    }
+
+    function reverserArray(arr) {
+        let first;
+        for (let i = 0; i <= Math.floor((arr.length - 1) / 2); i++) {
+            first = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = first;
+        }
+        return arr;
+    }
+
+    function display() {
+        document.write("<h2>" + arrayNumber.join("  ") + "</h2>");
+        document.write("<h2>" + "Reverser: " + reverserArray(arrayNumber).join("  ") + "</h2>");
+    }
+
+    window.onload = addNumberArray;
+</script>
+</body>
+</html>
