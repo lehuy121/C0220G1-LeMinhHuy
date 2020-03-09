@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Function</title>
+</head>
+<body>
+Square of: <input id="input" oninput="calculate();">
+<span id="result"></span>
+<script>
+    function square(number){
+        return number * number;
+    }
+    function calculate(){
+        let input = document.getElementById("input").value;
+        let result =0;
+        result = square(input);
+        document.getElementById("result").innerHTML = result;
+
+    }
+</script>
+</body>
+</html>

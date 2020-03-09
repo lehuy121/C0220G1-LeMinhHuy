@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PracticeFunction01_BT02</title>
+</head>
+<body>
+<script>
+    // Bài 3: Tạo hàm nhận vào hai tham số.
+    // Nếu giá trị của tham số thứ nhất lớn hơn tham số thứ hai, hiển thị hộp thoại thông báo cho người dùng.
+    // Nếu giá trị của tham số thứ nhất nhỏ hơn hoặc bằng tham số thứ hai, trả về tổng của hai tham số.
+
+    let inputNum1 = parseInt(prompt("Enter Number 01:"));
+    let inputNum2 = parseInt(prompt("Enter Number 02:"));
+    compareNumber(inputNum1, inputNum2);
+
+    function compareNumber(num1, num2) {
+        if (num1 > num2) {
+            return alert("The first is greater than the second");
+        } else {
+            let sum = num1 + num2;
+            return alert("Sum: " + sum);
+        }
+    }
+</script>
+</body>
+</html>

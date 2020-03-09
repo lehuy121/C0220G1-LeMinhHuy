@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Min</title>
+</head>
+<body>
+<script>
+    let arrayNumber = {
+        arr1: [3, 5, 1, 8, -3, 7, 8],
+        arr2: [7, 12, 6, 9, 20, 56, 89],
+        arr3: [],
+        arr4: [0, 0, 0, 0, 0, 0]
+    };
+
+    function findMinNumber(arr) {
+        let min = arr[0];
+        let index=0;
+        if(arr.length ===0){
+            return -1;
+        }
+        for (let i = 0; i < arr.length; i++) {
+            if (min > arr[i]) {
+               // min = arr[i];
+                index =i;
+            }
+        }
+        return index;
+    }
+
+    function display() {
+        document.write("Array number: " +arrayNumber.arr1+" Min number at position: "+ findMinNumber(arrayNumber.arr1)+"<br>");
+        document.write("Array number: " +arrayNumber.arr2+" Min number at position: "+ findMinNumber(arrayNumber.arr2)+"<br>");
+        document.write("Array number: " +arrayNumber.arr3+" Min number at position: "+ findMinNumber(arrayNumber.arr3)+"<br>");
+        document.write("Array number: " +arrayNumber.arr4+" Min number at position: "+ findMinNumber(arrayNumber.arr4));
+
+    }
+
+    display();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Converter Feet To Meters</title>
+</head>
+<body>
+<label>Enter Feet: </label>
+<input id="inputFeet" type="number" placeholder="Feet"
+       oninput="displayResult(this.value);">
+</p>
+<p>Result Meters: <input id="outputMeters"></input></p>
+<hr align="left" width="100%">
+Enter Meter: <input id="inputMeter" type="number" placeholder="Meter"
+       oninput="displayResult(this.value);">
+</p>
+<p>Result Feet: <input id="outputFeet"></input></p>
+<script>
+    let idInputFeet = "inputFeet";
+    let idInputMeter = "inputMeter";
+    function displayResult(){
+        document.getElementById("outputMeters").value = convertFeetToMeter(getValueUser(idInputFeet));
+        document.getElementById("outputFeet").value = convertMeterToFeet(getValueUser(idInputMeter));
+    }
+    function convertFeetToMeter(feet){
+        const ONE_METER = 0.305;
+        return ONE_METER * feet;
+    }
+    function convertMeterToFeet(meter){
+        const ONE_FEET = 3.279;
+        return ONE_FEET * meter;
+    }
+    let getValueUser = function(id){
+        return document.getElementById(id).value;
+    }
+</script>
+</body>
+</html>
