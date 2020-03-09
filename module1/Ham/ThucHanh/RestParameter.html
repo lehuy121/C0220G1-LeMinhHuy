@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rest parameter</title>
+</head>
+<body>
+<script>
+    function sumNumberUsedLoop(...number){
+        let sum=0;
+        for(let i=0; i<number.length;i++){
+            sum+=number[i];
+        }
+    return sum;
+    }
+    function sumNumberUsedReduce(...number){
+       /* return number.reduce((previous, current) => {
+            return previous + current;
+        },0);*/
+
+        return number.reduce.call(number, function(previous, current) {
+            return previous + current;
+        }, 0);
+    }
+    console.log(sumNumberUsedLoop(1,2,3));
+    console.log(sumNumberUsedReduce(1,2,3));
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PracticeArray01_BT09</title>
+</head>
+<body>
+<script>
+    // Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+    // Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.
+    let stringArr = [];
+    let inputCharacter;
+
+    function inputStringToArray() {
+        inputString = prompt("Input String");
+        stringArr = inputString.split("");
+        inputCharacter = prompt("Input 1 Character");
+        displayResult();
+    }
+
+    function isCharacterInArray(arr, char) {
+        let count = 0;
+        let flag=true;
+        for (let i = 0; i < arr.length; i++) {
+            if (char === arr[i]) {
+                count++;
+                flag =true;
+            }
+        }
+        if(!flag) {
+            return -1;
+        }
+        return count;
+    }
+
+    function displayResult() {
+        document.write("<h2>" + stringArr + "</h2>"+"<br>");
+        document.write("<h2>" + inputCharacter + "</h2>"+"<br>");
+        document.write("<h2>" + isCharacterInArray(stringArr, inputCharacter) + "</h2>");
+    }
+    inputStringToArray();
+</script>
+</body>
+</html>

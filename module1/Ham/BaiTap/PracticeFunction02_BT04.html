@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PracticeFunction02_BT04</title>
+</head>
+<body>
+Input whatever you want: <input id="input">
+<button onclick="display();">OK</button>
+<script>
+    //Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không.
+    // Nếu là ký tự số hàm trả về true, ngược lại trả về false.
+    function isNumber(input) {
+        let numbers = /^[0-9]+$/;  //<----RegExp(regular expressions) (bieu thuc chinh qui)
+        return !!input.match(numbers);
+    }
+    function isNumber1(input){
+        return input - input === 0;
+    }
+    function display() {
+        let input = document.getElementById("input").value;
+        alert(isNumber1(input));
+    }
+
+</script>
+</body>
+</html>

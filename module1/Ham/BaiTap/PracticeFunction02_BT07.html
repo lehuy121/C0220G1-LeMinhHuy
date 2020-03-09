@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PracticeFunction02_BT07</title>
+</head>
+<body>
+<script>
+    //Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.
+    input1 = prompt("Input number 01");
+    input2 = prompt("Input number 02");
+    display();
+    function swapNumber(a,b){
+        let arrays = [a,b];
+        let temp;
+        temp = arrays[0];
+        arrays[0]=arrays[1];
+        arrays[1]=temp;
+        return arrays;
+    }
+    function display(){
+       document.write("<h2>"+"Before swap: "+input1+"  "+input2+"</h2>");
+       document.write("<h2>"+"After swap: "+swapNumber(input1,input2)+"</h2>");
+    }
+</script>
+</body>
+</html>

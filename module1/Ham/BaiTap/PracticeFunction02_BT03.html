@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PracticeFunction02_BT03</title>
+</head>
+<body>
+<script>
+    //Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.
+    input = parseInt(prompt("Enter Number"));
+    display();
+
+    function calculateFactorial(num) {
+        if (num === 0 || num === 1) {
+            return 1;
+        } else {
+            return num * calculateFactorial(num - 1);
+        }
+    }
+    function display() {
+        document.write("<h2>" + calculateFactorial(input) + "</h2>" + "<br>");
+    }
+</script>
+</body>
+</html>

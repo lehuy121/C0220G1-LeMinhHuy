@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PracticeFunction02_BT02</title>
+</head>
+<body>
+<script>
+    //Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được
+    inputDiameter = parseInt(prompt("Enter Number Diameter"));
+    inputRadius = parseInt(prompt("Enter Number Radius"));
+    function perimeter(diameter){
+        const PI = 3.14;
+        return diameter*PI;
+    }
+    function acreage(radius){
+        const PI = 3.14;
+        return (radius * radius) * PI;
+    }
+    document.write("<h2>" + perimeter(inputDiameter) + "</h2>"+"<br>");
+    document.write("<h2>" + acreage(inputRadius) + "</h2>");
+</script>
+</body>
+</html>
