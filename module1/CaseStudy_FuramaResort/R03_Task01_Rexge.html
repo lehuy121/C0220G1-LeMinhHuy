@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validation</title>
+</head>
+<body>
+Name: <input id="name"><br>
+Email: <input id="email" onblur="validationEmail(this);"><br>
+ID Number: <input id="idNumber" onblur="validationIdNumber(this);"><br>
+Birth: <input id="birth" onblur="validationBirth(this);"><br>
+RentDays: <input id="rentDays" onblur="validationRentDays(this);"><br>
+AccompanyNumber: <input id="accompany"><br>
+<button id="confirm" onclick="standardization();">Confirm</button><br>
+<p></p>
+<script>
+    function validationEmail(emailField) {
+        let emailFormat = /^([a-z])+@([a-z])+\.([a-z]{2,3})$/;
+        if (emailFormat.test(emailField.value) === false) {
+            alert('Invalid Email Address. Email Format is abc@abc.abc ');
+            return false;
+        }
+        return true;
+    }
+
+    function validationIdNumber(idField) {
+        let idFormat = /^([0-9]{8})$/;
+        if (idFormat.test(idField.value) === false) {
+            alert('Invalid ID Number. Id Number Format is 12345678 ');
+            return false;
+        }
+        return true;
+    }
+
+    function validationBirth(birthField) {
+        //let birthFormat = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+        let regex = /^((([01])[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+        // let day= birthField.substring();
+        if (regex.test(birthField.value) === false) {
+            alert('Invalid Birth Format. Birth Format is DD/MM/YYYY ');
+            return false;
+        }
+        return true;
+    }
+
+    function validationRentDays(rentDaysField) {
+        let idFormat = /^\d+$/;
+        if (idFormat.test(rentDaysField.value) === false) {
+            alert("Invalid ID Rent days.");
+            return false;
+        }
+        return true;
+    }
+    let str=["Le.Minh.Huy"];
+    function standardization(str) {
+      //  let inputName = document.getElementById("name").value;
+        return str.map(str => {
+            return str.replace(/ [.]/g,"");
+        });
+    }
+    let result = standardization(str);
+   console.log(result);
+</script>
+</body>
+</html>

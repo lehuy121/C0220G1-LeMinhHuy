@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validation</title>
+</head>
+<body>
+<script>
+    let customerName;
+    let newCustomerName;
+    let email;
+    let id;
+    let birth;
+    let rentDays;
+    let accompany;
+
+    function inputUserInformation() {
+        customerName = prompt("Input Name");
+        newCustomerName =standardization(customerName);
+        do {
+            email = prompt("Input Email");
+        } while (!validationEmail(email));
+        do {
+            id = prompt("Input ID Number");
+        } while (!validationIdNumber(id));
+        do {
+            birth = prompt("Input Birth");
+        } while (!validationBirth(birth));
+        do {
+            rentDays = prompt("Input RentDays");
+        } while (!validationIntegerNumber);
+        do {
+            accompany = prompt("Input Accompany");
+        } while (!validationIntegerNumber);
+        display();
+    }
+
+
+    function validationEmail(emailField) {
+        let emailFormat = /^([a-z])+@([a-z])+\.([a-z]{2,3})$/;
+        if (emailFormat.test(emailField) === false) {
+            alert('Invalid Email Address. Email Format is abc@abc.abc ');
+            return false;
+        }
+        return true;
+    }
+
+    function validationIdNumber(idField) {
+        let idFormat = /^([0-9]{8})$/;
+        if (idFormat.test(idField) === false) {
+            alert('Invalid ID Number. Id Number Format is 12345678 ');
+            return false;
+        }
+        return true;
+    }
+
+    function validationBirth(birthField) {
+        let birthFormat = /^((([01])[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+        if (birthFormat.test(birthField) === false) {
+            alert('Invalid Birth Format. Birth Format is DD/MM/YYYY ');
+            return false;
+        }
+        return true;
+    }
+
+    function validationIntegerNumber(rentDaysField) {
+        let idFormat = /^\d+$/;
+        if (idFormat.test(rentDaysField) === false) {
+            alert('Invalid RentDays Format. RentDays Format is Integer Number(0-9) ');
+            return false;
+        }
+        return true;
+    }
+
+    function standardization(str) {
+        let temp = "";
+        str = str.trim().toLowerCase();
+        for (let i = 0; i < str.length; i++) {
+            if (str.charAt(i) === " " && str.charAt(i + 1) === " ") {
+                continue;
+            }
+            if (i === 0 || str.charAt(i - 1) === " ") {
+                temp += str.charAt(i).toUpperCase();
+                continue;
+            }
+            temp += str.charAt(i);
+        }
+        return temp;
+    }
+    function display(){
+        document.write("Customer Name: "+newCustomerName+"<br>");
+        document.write("Email: "+email+"<br>");
+        document.write("ID Number: "+id+"<br>");
+        document.write("Birth: "+birth+"<br>");
+        document.write("Rent Days: "+rentDays+"<br>");
+        document.write("Accompany: "+accompany+"<br>");
+    }
+
+    inputUserInformation();
+</script>
+</body>
+</html>
