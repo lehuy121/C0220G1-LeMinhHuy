@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Motor(brand) {
+        this.brand = brand;
+        this.color = "red";
+        // 1.1 Khai bao 1 function ben trong class Motor.
+        //Một hạn chế là hàm getInfo() được tạo ra mỗi lần bạn tạo lại(new) một đối tượng mới.
+        //Thỉnh thoảng đó có thể là cách bạn muốn nhưng rất hiếm gặp, điều này đồng nghĩa là nó sẽ tiêu tốn nhiều tài nguyên bộ nhớ hơn
+        /*this.getInfo = function() {
+            return this.color + ' ' + this.brand + ' motor';
+        };*/
+        //------------------------------------
+        //1.2 khai bao function bang prototype method
+        //Một cách làm tiết kiệm hơn là thêm phương thức getInfo() vào bên trong prototype của hàm khởi tạo.
+        Motor.prototype.getInfo = function () {
+            return this.color + ' ' + this.brand + ' motor';
+        };
+    }
+
+    //------------------
+    //2.Sử dụng object literals(set cung')
+    //Với cách này, bạn không cần (và không thể) khởi tạo đối tượng của lớp vì đơn giản là nó đã tồn tại.
+    // Vì vậy bạn chỉ cần bắt đầu sử dụng đối tượng này thôi.
+    let dog = {
+        color: "brow",
+        type: "abcxyz",
+        getInfo: function () {
+            return this.color + " " + this.type;
+        }
+    };
+    // 3. Singleton sử dụng một hàm
+    // Cách thứ ba được trình bày trong bài viết này là sự kết hợp của hai cách trên mà bạn đã thấy.
+    // Bạn có thể sử dụng một hàm để xác định một đối tượng singleton. Đây là cú pháp:
+    //         Vậy new function(){...} thực hiện 2 điều sau cùng một lúc: định nghĩa một hàm (một hàm tạo không tên)
+    // và gọi nó thông qua từ khóa new. Với cách này, có thể gây ra cho bạn chút nhầm lẫn bởi nó không quá phổ biến,
+    // nhưng đây là một lựa chọn khi bạn thật sự muốn có một hàm khởi tạo mà bạn sẽ chỉ sử dụng một lần duy nhất
+    // và không cần thiết phải khai báo tên cho nó.
+    let cat = new function () {
+        this.type = "abc";
+        this.color = "";
+        this.getInfo = function () {
+            return this.type + " " + this.color;
+        }
+    };
+
+
+    // Để khởi tạo một đối tượng sử dụng hàm khởi tạo Apple, gán giá trị cho các thuộc tính và gọi phương thức bạn có thể làm như sau:
+
+    let honda = new Motor('honda');
+    console.log("Before: " +honda.getInfo());
+    honda.color = "black";
+    console.log("After: " +honda.getInfo());
+
+    console.log("Before: " +dog.getInfo());
+    dog.color="while";
+    console.log("After: " +dog.getInfo());
+
+    console.log("Before: " + cat.getInfo());
+    cat.color = "red";
+    console.log("After: " + cat.getInfo());
+
+
+</script>
+</body>
+</html>

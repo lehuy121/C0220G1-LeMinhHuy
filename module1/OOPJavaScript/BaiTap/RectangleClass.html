@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle Class</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    Rectangle = function (width, height) {
+        this.width = width;
+        this.height = height;
+
+        this.getPerimeter = function () {
+            return 2 * (this.width + this.height);
+        };
+        this.getAcreage = function () {
+            return this.width * this.height;
+        };
+        this.getRandomHex = function () {
+            return Math.floor(Math.random() * 255);
+        };
+        this.getRandomColor = function () {
+            let red = this.getRandomHex();
+            let green = this.getRandomHex();
+            let blue = this.getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green + ")";
+        };
+        this.display = function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            let perimeter = this.getPerimeter();
+            let acreage = this.getAcreage();
+            ctx.beginPath();
+            ctx.font = "20px Georgia";
+            ctx.fillText("Width: " + this.width, 350, 95);
+            ctx.fillText("Height: " + perimeter, 30, 200);
+            ctx.fillText("Perimeter: " + perimeter, 150, 90);
+            ctx.fillText("Acreage: " + acreage, 150, 70);
+            ctx.rect(150, 100, this.width, this.height);
+            ctx.fillStyle = this.getRandomColor();
+            ctx.fill();
+
+        }
+    };
+    let rectangle = new Rectangle(500, 200);
+    rectangle.display();
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Class</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor(battery, inbox, send, draft) {
+            this.battery = battery;
+            this.inbox = inbox;
+            this.send = send;
+            this.draft = draft;
+            this.flag = false;
+        }
+
+        static storesMessage = "";
+
+        turnOn() {
+            if (this.battery === 0) {
+                alert("Charge please !!!");
+                return this.flag = false;
+            }
+            return this.flag = true;
+        }
+
+        turnOff() {
+            return this.flag = false;
+        }
+
+        isOn() {
+            return this.flag === true;
+        }
+
+        getBattery() {
+            if (this.isOn()) {
+                return this.battery;
+            } else {
+                return alert("Turn on Mobile please!!!")
+            }
+
+        }
+
+        chargeBattery(charge) {
+            let currentBattery = this.battery;
+            this.battery = currentBattery + charge;
+        }
+
+        batteryDrain() {
+            let currentBattery = this.battery;
+            return this.battery = currentBattery - 1;
+        }
+
+        getInbox() {
+            if (this.isOn()) {
+                this.batteryDrain();
+                return Mobile.storesMessage;
+            }
+        }
+
+        sendMessage(message) {
+            if (this.isOn()) {
+                this.batteryDrain();
+                this.send = message;
+                Mobile.storesMessage = message;
+            }
+        }
+
+        getSend() {
+            if (this.isOn()) {
+                this.batteryDrain();
+                return this.send;
+            }
+
+        }
+    }
+
+    function samsungProcess() {
+        let samsung = new Mobile(50, "Welcome SamSung", "", "");
+        samsung.turnOn();
+        alert("True=On False=Off: SamSung: " + samsung.isOn());
+        alert("First battery status: " + samsung.getBattery());
+        samsung.chargeBattery(10);
+        alert("After charge battery status is: " + samsung.getBattery());
+        samsung.sendMessage("Message from samsung");
+        alert("After send message battery status is: " + samsung.getBattery());
+        document.write("<h3>" + "Samsung's send: " + samsung.getSend() + "</h3>" + "<br>");
+    }
+
+    function iphoneProcess() {
+        let iphone = new Mobile(0, "Welcome Iphone", "", "");
+        iphone.chargeBattery(70);
+        iphone.turnOn();
+        alert("Iphone battery status: " + iphone.getBattery());
+        alert("True=On False=Off: Iphone: " + iphone.isOn());
+        document.write("Open Inbox: " + iphone.getInbox());
+    }
+
+    samsungProcess();
+    iphoneProcess();
+</script>
+</body>
+</html>
