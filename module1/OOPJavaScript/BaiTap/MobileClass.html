@@ -15,7 +15,7 @@
             this.flag = false;
         }
 
-        static storesMessage = "";
+         static storesMessage = "";
 
         turnOn() {
             if (this.battery === 0) {
@@ -92,9 +92,9 @@
         let iphone = new Mobile(0, "Welcome Iphone", "", "");
         iphone.chargeBattery(70);
         iphone.turnOn();
-        alert("Iphone battery status: " + iphone.getBattery());
         alert("True=On False=Off: Iphone: " + iphone.isOn());
-        document.write("Open Inbox: " + iphone.getInbox());
+        alert("Iphone battery status: " + iphone.getBattery());
+        document.write("Iphone Inbox: " + iphone.getInbox());
     }
 
     samsungProcess();
