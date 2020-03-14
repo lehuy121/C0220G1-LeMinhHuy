@@ -14,22 +14,26 @@
     class Customer {
         constructor() {
             this.flag = false;
+            this.row = 0;
             this.cols = 3;
             this.quantityCustomer = 0;
-            //this.arrCustomerName = [this.quantityCustomer];
+            this.arrCustomerName = [this.row];
             this.inputMenu = "";
             this.inputCustomer = "";
-            this.nameDelete = "";
         }
-      static arrCustomerName = [this.quantityCustomer];
+
+        // static arrCustomerName = [this.row];
+
         menu() {
             do {
                 this.inputMenu = prompt("Enter 1: Add Name Customer" + "\n" + "Enter 2: Delete Customer" + "\n" + "Enter q: Quit Program");
                 if (this.inputMenu === "1") {
                     this.addCustomer();
+
                     this.flag = false;
                 } else if (this.inputMenu === "2") {
                     this.deleteCustomer();
+
                     this.flag = false;
                 } else if (this.inputMenu === "q") {
                     return this.flag = true;
@@ -40,36 +44,43 @@
 
         addCustomer() {
             this.quantityCustomer = parseInt(prompt("Enter Quantity Customer:"));
-            Customer.arrCustomerName[this.quantityCustomer] = Customer.arrCustomerName[this.quantityCustomer];
-            for (let row = 0; row < this.quantityCustomer; row++) {
-                Customer.arrCustomerName[row] = [this.cols];
+            for (this.row; this.row < this.quantityCustomer; this.row++) {
+                this.arrCustomerName[this.row] = [this.cols];
             }
             for (let i = 1; i <= this.quantityCustomer; i++) {
                 for (let j = 0; j < this.cols; j++) {
                     this.inputCustomer = prompt("Enter Information Customer: " + i + "\n" + "Name, Age, Address");
-                    Customer.arrCustomerName[i - 1][j] = this.inputCustomer;
+                    this.arrCustomerName[i - 1][j] = this.inputCustomer;
                 }
             }
-            this.sortArrays();
+            document.write("After Add"+"<br>");
+            this.display();
+
         }
 
         deleteCustomer() {
-            this.nameDelete = prompt("Enter Name You Want To Delete");
-            for (let i = 0; i < Customer.arrCustomerName.length; i++) {
-                if (this.nameDelete === Customer.arrCustomerName[i][0]) { //<--- nhap sai ko xoa dc va bao loi~
-                    Customer.arrCustomerName.splice(i, 1);
+            let deleteName = prompt("Enter Name You Want To Delete");
+            let i = 0;
+            let elementValue;
+
+            while (i < this.quantityCustomer) {
+                elementValue = this.arrCustomerName[i][0];
+                if (elementValue === deleteName) {
+                    this.arrCustomerName.splice(i, 1);
+                    i--;
+                    this.quantityCustomer--;
                 }
+                i++;
             }
-            this.quantityCustomer = this.quantityCustomer - 1;
-            this.sortArrays();
+            document.write("After Delete"+"<br>");
+            this.display();
         }
 
-        sortArrays() {
-            Customer.arrCustomerName.sort();
-            document.write("After Sort: " + "<br>");
-            for (let i = 0; i < this.quantityCustomer; i++) {
+        display() {
+            this.arrCustomerName.sort();
+            for (let i = 0; i < this.arrCustomerName.length; i++) {
                 for (let j = 0; j < this.cols; j++) {
-                    document.write(Customer.arrCustomerName[i][j] + " | ");
+                    document.write(this.arrCustomerName[i][j] + " | ");
                 }
                 document.write("<br>");
             }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashlight Simulation Operation</title>
+</head>
+<body>
+<script>
+    class Battery {
+        constructor(energy) {
+            this.energy = energy;
+        }
+
+        setEnergy(energy) {
+            this.energy = energy;
+        }
+
+        getEnergy() {
+            return this.energy;
+        }
+
+        decreaseEnergy() {
+            if (this.energy > 0) {
+                this.energy--;
+            }
+        }
+    }
+
+    class FlashLight {
+        constructor(battery, status) {
+            this.battery = battery;
+            this.status = status;
+        }
+
+        setBattery(battery) {
+            return this.battery = battery;
+        }
+
+        getBatteryInfo() {
+            return this.battery.getEnergy();//<--- goi phuong thuc getEnergy() cua class Battery phia tren
+        }
+
+        light() {
+            if (this.status) {
+                alert("Lighting");
+            } else {
+                alert("Not lighting");
+            }
+        }
+
+        turnOn_Off() {
+            this.status = !this.status;
+        }
+
+    }
+
+    function progress(){
+        let battery = new Battery();
+        battery.setEnergy(60);
+
+        let flashLamp = new FlashLight(); // doi tuong flashLamp (FlashLight) tuong tac voi doi tuong battery cua lop Battery
+        flashLamp.setBattery(battery);
+
+        document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
+        flashLamp.light();
+
+        document.write("Turn on<br/>");
+        flashLamp.turnOn_Off();
+        flashLamp.light();
+        document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
+
+        document.write("Turn off<br/>");
+        flashLamp.turnOn_Off();
+        flashLamp.light();
+    }
+    progress();
+</script>
+</body>
+</html>

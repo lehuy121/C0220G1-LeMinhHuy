@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Create Class Person</title>
+</head>
+<body>
+<script>
+    class Person {
+        constructor(first, last, age, gender, interests) {
+            this.name = {first, last};
+            this.age = age;
+            this.gender = gender;
+            this.interests = interests;
+        }
+
+        bio() {
+             alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+        };
+
+        greeting() {
+            alert('Hi! I\'m ' + this.name.first + '.');
+        };
+    }
+
+    let person01 = new Person("Huy", "Le", "32", "male", ["football","music","abc123"]);
+   person01.bio();
+  // alert(person01.interests);
+
+
+   // person01.greeting();
+    let person2 = Object.create(person01); // new Object via pearson01 Object  Nhược điểm là  rằng phương thức create() không được hỗ trợ bởi IE8
+    person2.greeting();
+
+</script>
+</body>
+</html>

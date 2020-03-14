@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Move Object Game</title>
+</head>
+<body>
+<div id="game"></div>
+<script>
+    class Hero {
+        constructor(speed, image, top, left, size) {
+            this.image = image;
+            this.top = top;
+            this.left = left;
+            this.size = size;
+            this.speed = speed;
+            this.flag1 =true;
+            this.flag2 =true;
+        }
+        getHeroElement() {
+            return '<img width=' + this.size + '' +
+                ' height="' + this.size + '"' +
+                ' src="' + this.image + '"' +
+                ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
+        }
+        moveRight() {
+            this.left += this.speed;
+            console.log('left: ' + this.left);
+        }
+        moveAround() {
+            let width = window.innerWidth - hero.size;
+            let height = window.innerHeight - hero.size;
+
+            if (this.left < width && this.flag1 ) {
+                this.left += this.speed;
+            } else if (this.top < height && this.flag2 ) {
+                this.top += this.speed;
+                console.log("TOP+ : "+this.top);
+                this.flag1=false;
+            } else if (this.left > 0) {
+                this.left -= this.speed;
+                console.log("LEFT-: "+ this.left);
+                this.flag2=false;
+            } else if(this.top >0){
+                this.top -= this.speed;
+                console.log("TOP- : "+this.top);
+            } else {
+                this.flag2=true;
+                this.flag1=true;
+            }
+        }
+    }
+    let hero = new Hero(30, 'images/iniesta.png', 0, 0, 200);
+    function start() {
+        hero.moveAround();
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 100)
+    }
+    start();
+</script>
+</body>
+</html>
