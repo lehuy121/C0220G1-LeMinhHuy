@@ -15,12 +15,12 @@
             return this.weight === false;
         }
 
-        getApple() {
+        getWeight() {
             return this.weight;
         }
 
-        decrease(apple) {
-            return this.weight = apple - 1;
+        decrease() {
+            return this.weight = this.weight - 1;
         }
     }
 
@@ -36,9 +36,10 @@
         speak(words) {
             return alert(words);
         }
-        eat(eating) {
+
+        eat(apple) {
             if (apple.isEmpty() === false) {
-                apple.decrease(eating);
+                apple.decrease();
                 return this.weight = this.weight + 1;
             }
         }
@@ -48,17 +49,17 @@
         }
     }
 
-    let apple = new Apple();
-
+    let goldApple = new Apple();
     let adam = new Human("Adam", "male", 60);
     let eva = new Human("Eva", "female", 45);
-    adam.eat(apple.getApple());
-    console.log(adam.getWeight());
-    console.log("Apple after Adam eat: " + apple.getApple());
 
-    eva.eat(apple.getApple());
-    console.log(eva.getWeight());
-    console.log("Apple after Eva eat: " + apple.getApple());
+    adam.eat(goldApple);
+    console.log("Adam weight after eat Apple: " + adam.getWeight());
+    console.log("Apple weight after Adam eat: " + goldApple.getWeight());
+
+    eva.eat(goldApple);
+    console.log("Eva weight after eat Apple: " + eva.getWeight());
+    console.log("Apple weight after Eva eat: " + goldApple.getWeight());
 
 </script>
 </body>
