@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch Light</title>
+</head>
+<body>
+<img src="images/LightOff.gif" id="light">
+<br>
+<button onclick="turnOn_Off();">ON OFF</button>
+
+<script>
+    class SwitchButton {
+        constructor(status) {
+            this.status = status;
+        }
+        getStatus() {
+            return this.status;
+        }
+
+        switchOn_Off() {
+            this.status = !this.status;
+        }
+    }
+
+    class ElectricLamp {
+        constructor(switchButton) {
+           this.switchButton = switchButton
+        }
+        onLight() {
+            if (switchLight.getStatus() === true) {
+                document.getElementById("light").src = "images/LightOn.gif";
+            } else {
+                document.getElementById("light").src = "images/LightOff.gif";
+            }
+        }
+
+
+    }
+
+    let switchLight = new SwitchButton(true);
+    let hitachi = new ElectricLamp(switchLight);
+    function turnOn_Off(){
+        switchLight.switchOn_Off();
+        hitachi.onLight();
+    }
+</script>
+</body>
+</html>

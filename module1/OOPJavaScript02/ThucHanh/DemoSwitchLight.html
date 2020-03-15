@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<img src="Den_Tat.gif" id="bongden">
+<img src="LightOff.gif" id="bongden">
 <br>
 <h4 id="result">Bong den dang tat</h4>
 <button onclick="turnOn_TurnOff()">On_Off</button>
@@ -31,10 +31,10 @@
         }
         onLight(){
             if (this.switchButton.getStatus() === true){
-                document.getElementById("bongden").src = "Den_Sang.gif";
+                document.getElementById("bongden").src = "LightOn.gif";
                 document.getElementById("result").innerHTML = "Bong den da bat";
             }else {
-                document.getElementById("bongden").src = "Den_Tat.gif";
+                document.getElementById("bongden").src = "LightOff.gif";
                 document.getElementById("result").innerHTML = "Bong den da tat";
             }
         }

@@ -3,64 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <title>Adam and Eva</title>
+    <style>
+        .row {
+            display: flex; /* equal height of the children */
+            height: auto;
+            width: 200px;
+        }
+
+        .cols {
+            flex: 10px; /* additionally, equal width */
+            padding: 1rem;
+            border: solid;
+        }
+        #apple{
+            border-left-width: 0;
+            border-right-width: 0;
+        }
+        .text {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+<div class="row">
+    <div class="cols">
+        <img src="images/smile.png" height="100" width="100"/>
+        <h2 class="text" id="adam">Human</h2>
+        <h3 class="text" id="adamWeight"></h3>
+        <button onclick="adam.speak();">Speak</button>
+        <button onclick="adamEat();">Eat</button>
+
+    </div>
+    <div class="cols" id="apple">
+        <img src="images/apple.png" height="50" width="50"/>
+        <h2 class="text" id="weight"></h2>
+        <button onclick="setNewWeight();">Take the Apple</button>
+    </div>
+
+    <div class="cols">
+        <img src="images/smile.png" height="100" width="100"/>
+        <h2 class="text" id="eva">Human</h2>
+        <h3 class="text" id="evaWeight"></h3>
+        <button onclick="eva.speak();">Speak</button>
+        <button onclick="evaEat();">Eat</button>
+    </div>
+</div>
+
+
 <script>
     class Apple {
         constructor() {
-            this.weight = 10;
+            this.weight = 0;
         }
 
         isEmpty() {
-            return this.weight === false;
-        }
-
-        getWeight() {
-            return this.weight;
-        }
-
-        decrease() {
-            return this.weight = this.weight - 1;
-        }
-    }
-
-
-    class Human {
-
-        constructor(name, gender, weight) {
-            this.name = name;
-            this.gender = gender;
-            this.weight = weight;
-        }
-
-        speak(words) {
-            return alert(words);
-        }
-
-        eat(apple) {
-            if (apple.isEmpty() === false) {
-                apple.decrease();
-                return this.weight = this.weight + 1;
+            if (this.weight === 0) {
+                alert("Apple is empty");
+                return false;
+            } else {
+                return true;
             }
         }
 
         getWeight() {
             return this.weight;
         }
+
+        setWeight(newWeight) {
+            return this.weight = newWeight;
+
+        }
+
+        decrease(eatTimes) {
+            return this.weight = this.weight - eatTimes;
+        }
     }
 
-    let goldApple = new Apple();
-    let adam = new Human("Adam", "male", 60);
-    let eva = new Human("Eva", "female", 45);
 
-    adam.eat(goldApple);
-    console.log("Adam weight after eat Apple: " + adam.getWeight());
-    console.log("Apple weight after Adam eat: " + goldApple.getWeight());
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
 
-    eva.eat(goldApple);
-    console.log("Eva weight after eat Apple: " + eva.getWeight());
-    console.log("Apple weight after Eva eat: " + goldApple.getWeight());
+        isMale() {
+            return this.gender === true;
+        }
 
+        setGender() {
+            return this.gender;
+        }
+
+        checkApple(apple) {
+            return apple.getWeight() > 0;
+
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            return this.name = name;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(weight) {
+            return this.weight = weight;
+        }
+
+        speak() {
+            return alert("Hello my name is: " + this.name + "");
+        }
+
+        eat(apple) {
+            let ration = 1;
+            if (this.checkApple(apple)) {
+                apple.decrease(ration);
+                return this.weight = this.weight + ration;
+            } else {
+                apple.isEmpty();
+            }
+        }
+    }
+
+    let apple = new Apple();
+    let adam = new Human("Adam", true, 60);
+    let eva = new Human("Eva", false, 45);
+
+    function setNewWeight() {
+        apple.setWeight(10);
+        display();
+    }
+
+    function adamEat() {
+        adam.eat(apple);
+        display();
+    }
+
+    function evaEat() {
+        eva.eat(apple);
+        display();
+    }
+
+    function display() {
+        document.getElementById("adam").innerText = adam.getName();
+        document.getElementById("eva").innerText = eva.getName();
+        document.getElementById("weight").innerText = apple.getWeight();
+        document.getElementById("adamWeight").innerText = adam.getWeight();
+        document.getElementById("evaWeight").innerText = eva.getWeight();
+    }
+
+    display();
 </script>
 </body>
 </html>
