@@ -188,12 +188,11 @@
             if (count >= 5) {
                 this.isOver = true;
                 if (this.turn === VALUE_X) {
-                    document.getElementById("showTurn").innerText = "X Won!!!";
+                    alert("X Won!!!") ;
 
                 } else {
-                    document.getElementById("showTurn").innerText = "O Won!!!";
+                    alert("O Won!!!") ;
                 }
-
             }
         }
     }
@@ -206,9 +205,7 @@
         gameBoard = new GameBoard(DEFAULT_ROWS, DEFAULT_COLS, "game-board");
         gameBoard.draw();
     }
-
     let gameBoard;
-   // start();
 </script>
 </body>
 </html>

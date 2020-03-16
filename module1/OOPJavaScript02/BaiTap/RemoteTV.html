@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove TV</title>
+    <link rel="stylesheet" href="style/styleTv.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="tv">
+        <img id="screen" alt=" " src="channel/tvOff.png" height="250" width="500"/>
+        <div class="inside">
+            <b id="channel"></b>
+        </div>
+        <div class="inside">
+            <b id="status">OFF</b>
+        </div>
+        <div class="inside">
+            <b id="volume"></b>
+        </div>
+    </div>
+    <div class="remote" id="remote">
+        <label class="switch">
+            <input type="checkbox" onclick="turnOn_Off();">
+            <span class="slider"></span>
+        </label>
+        <button class = "button" value="2" onclick="changeChannel(this.value);">Channel 2</button>
+        <button class = "button" value="3" onclick="changeChannel(this.value);">Channel 3</button>
+        <button class = "button" value="10" onclick="increaseVolume(this.value);">+ Volume</button>
+        <button class = "button" value="10" onclick="decreaseVolume(this.value);">- Volume</button>
+    </div>
+</div>
+<script>
+    class Remote {
+        constructor(tv) {
+            this.tv = tv;
+        }
+
+        turnOn_Off() {
+            if (this.tv.getStatus() === false) {
+                this.tv.setStatus(true);
+            } else {
+                this.tv.setStatus(false);
+            }
+
+        }
+
+        changeChannel(channel) {
+            if (this.tv.getStatus()) {
+                this.tv.setChannel(channel);
+            }
+        }
+
+        increaseVolume(volume) {
+            if (this.tv.getStatus() && this.tv.getVolume() < 100) {
+                this.tv.increaseVolume(volume);
+            }
+        }
+
+        decreaseVolume(volume) {
+            if (this.tv.getStatus() && this.tv.getVolume() > 10) {
+                this.tv.decreaseVolume(volume);
+            }
+        }
+    }
+
+    class Television {
+        constructor(status, channel, volume) {
+            this.status = status;
+            this.channel = channel;
+            this.volume = volume;
+        }
+
+        setStatus(status) {
+            return this.status = status;
+        }
+
+        getStatus() {
+            return this.status;
+        }
+
+        getVolume() {
+            return this.volume;
+        }
+
+        increaseVolume(num) {
+            return this.volume += num;
+        }
+
+        decreaseVolume(num) {
+            return this.volume -= num;
+        }
+
+        getChannel() {
+            return this.channel;
+        }
+
+        setChannel(newChannel) {
+            return this.channel = newChannel;
+        }
+
+        offScreen() {
+            document.getElementById("screen").src = "channel/tvOff.png";
+            document.getElementById("channel").innerText = "";
+            document.getElementById("volume").innerText = "";
+            document.getElementById("status").innerText = "OFF";
+        }
+
+        onScreen() {
+            if (this.status) {
+                document.getElementById("status").innerText = "ON";
+                if (this.channel === 1) {
+                    document.getElementById("screen").src = "channel/netflix.png";
+                    document.getElementById("channel").innerText = this.getChannel();
+                    document.getElementById("volume").innerText = this.getVolume();
+                } else if (this.channel === 2) {
+                    document.getElementById("screen").src = "channel/disney.png";
+                    document.getElementById("channel").innerText = this.getChannel();
+                    document.getElementById("volume").innerText = this.getVolume();
+                } else if (this.channel === 3) {
+                    document.getElementById("screen").src = "channel/cartoonNetwork.png";
+                    document.getElementById("channel").innerText = this.getChannel();
+                    document.getElementById("volume").innerText = this.getVolume();
+                }
+            } else {
+                this.offScreen();
+            }
+        }
+    }
+
+    let panasonic = new Television(false, 1, 10);
+    let remoteTv = new Remote(panasonic);
+
+    function turnOn_Off() {
+        remoteTv.turnOn_Off();
+        panasonic.onScreen();
+    }
+
+    function changeChannel(channels) {
+        remoteTv.changeChannel(parseInt(channels));
+        panasonic.onScreen();
+    }
+
+    function increaseVolume(value) {
+        remoteTv.increaseVolume(parseInt(value));
+        panasonic.onScreen();
+    }
+
+    function decreaseVolume(value) {
+        console.log(value);
+        remoteTv.decreaseVolume(parseInt(value));
+        panasonic.onScreen();
+    }
+
+</script>
+</body>
+</html>
