@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let storesData = [];
+    let element = {};
+
+    function displayMainMenu() {
+        let flag = false;
+        let menuAdd = "Enter 1: Add Name Customer";
+        let menuDisplay = "Enter 2: Display Customer";
+        let menuEdit = "Enter 3: Edit Customer";
+        let menuDelete = "Enter 4: Delete Customer";
+        let quitProgram = "Enter q: Quit Program";
+        do {
+            let inputMenu = prompt(menuAdd + "\n" + menuDisplay + "\n" + menuEdit + "\n" + menuDelete + "\n" + quitProgram);
+            if (inputMenu === "1") {
+                addNewCustomer();
+                flag = false;
+            } else if (inputMenu === "2") {
+                displayCustomer();
+                flag = true;
+            } else if (inputMenu === "3") {
+                editCustomer();
+                flag = true;
+            } else if (inputMenu === "4") {
+                deleteCustomer();
+                flag = true;
+            } else if (inputMenu === "q") {
+                return flag = true;
+            }
+        } while (!flag);
+    }
+
+    function addNewCustomer() {
+        element.name = prompt("Input Name");
+        element.age = prompt("Input Age");
+        element.address = prompt("Input Address");
+        storesData.push(element);
+    }
+
+    function displayCustomer() {
+        document.write("Name: " + storesData[0].name + "<br>");
+        document.write("Age: " + storesData[0].age + "<br>");
+        document.write("Address: " + storesData[0].address);
+    }
+
+    function editCustomer() {
+        element.age = prompt("Input Age");
+        element.address = prompt("Input Address");
+        storesData.push(element);
+        displayCustomer();
+    }
+
+    function deleteCustomer() {
+        let deleteData = storesData.shift();
+        console.log(storesData);
+
+        document.write("Delete Name: " + deleteData.name + "<br>");
+        document.write("Delete Age: " + deleteData.age + "<br>");
+        document.write("Delete Address: " + deleteData.address);
+    }
+
+    displayMainMenu();
+</script>
+</body>
+</html>

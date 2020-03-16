@@ -25,10 +25,10 @@
             <input type="checkbox" onclick="turnOn_Off();">
             <span class="slider"></span>
         </label>
-        <button class = "button" value="2" onclick="changeChannel(this.value);">Channel 2</button>
-        <button class = "button" value="3" onclick="changeChannel(this.value);">Channel 3</button>
-        <button class = "button" value="10" onclick="increaseVolume(this.value);">+ Volume</button>
-        <button class = "button" value="10" onclick="decreaseVolume(this.value);">- Volume</button>
+        <button class="button" value="2" onclick="changeChannel(this.value);">Channel 2</button>
+        <button class="button" value="3" onclick="changeChannel(this.value);">Channel 3</button>
+        <button class="button" value="10" onclick="increaseVolume(this.value);">+ Volume</button>
+        <button class="button" value="10" onclick="decreaseVolume(this.value);">- Volume</button>
     </div>
 </div>
 <script>
@@ -107,21 +107,30 @@
             document.getElementById("status").innerText = "OFF";
         }
 
+         listChannel = {
+            netflix: "channel/netflix.png",
+            disney: "channel/disney.png",
+            cartoonNetwork:  "channel/cartoonNetwork.png"
+        };
+
+        generalInfo() {
+            document.getElementById("channel").innerText = this.getChannel();
+            document.getElementById("volume").innerText = this.getVolume();
+        }
+
         onScreen() {
+            let elementScreen = document.getElementById("screen");
             if (this.status) {
                 document.getElementById("status").innerText = "ON";
                 if (this.channel === 1) {
-                    document.getElementById("screen").src = "channel/netflix.png";
-                    document.getElementById("channel").innerText = this.getChannel();
-                    document.getElementById("volume").innerText = this.getVolume();
+                    elementScreen.src = this.listChannel.netflix;
+                    this.generalInfo();
                 } else if (this.channel === 2) {
-                    document.getElementById("screen").src = "channel/disney.png";
-                    document.getElementById("channel").innerText = this.getChannel();
-                    document.getElementById("volume").innerText = this.getVolume();
+                    elementScreen.src = this.listChannel.disney;
+                    this.generalInfo();
                 } else if (this.channel === 3) {
-                    document.getElementById("screen").src = "channel/cartoonNetwork.png";
-                    document.getElementById("channel").innerText = this.getChannel();
-                    document.getElementById("volume").innerText = this.getVolume();
+                    elementScreen.src = this.listChannel.cartoonNetwork;
+                    this.generalInfo();
                 }
             } else {
                 this.offScreen();
