@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra Mã quốc gia nước Mỹ</title>
+</head>
+<body>
+<script>
+    function is_usZipCode(str) {
+        let regexp = /^[0-9]{5}(?:-[0-9]{4})?$/;
+       /*       /^\d{5}(?:[-\s]\d{4})?$/
+          - ^ = Start of the string.
+          - \d{5} = Match 5 digits (for condition 1, 2, 3)
+          - (?:…) = Grouping
+          -  [-\s] = Match a space (for condition 3) or a hyphen (for condition 2)
+          - \d{4} = Match 4 digits (for condition 2, 3)
+          - …? = The pattern before it is optional (for condition 1)
+          - $ = End of the string.*/
+        return regexp.test(str);
+
+    }
+    let zipCode = "03201-2150";
+    console.log(is_usZipCode(zipCode));
+    zipCode = "7892";
+    console.log(is_usZipCode(zipCode));
+</script>
+</body>
+</html>

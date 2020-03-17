@@ -53,13 +53,13 @@
         }
 
         increaseVolume(volume) {
-            if (this.tv.getStatus() && this.tv.getVolume() < 100) {
+            if (this.tv.getStatus()) {
                 this.tv.increaseVolume(volume);
             }
         }
 
         decreaseVolume(volume) {
-            if (this.tv.getStatus() && this.tv.getVolume() > 10) {
+            if (this.tv.getStatus()) {
                 this.tv.decreaseVolume(volume);
             }
         }
@@ -85,11 +85,17 @@
         }
 
         increaseVolume(num) {
-            return this.volume += num;
+            if(this.getVolume() < 100){
+                return this.volume += num;
+            }
+
         }
 
         decreaseVolume(num) {
-            return this.volume -= num;
+            if(this.getVolume() > 10){
+                return this.volume -= num;
+            }
+
         }
 
         getChannel() {

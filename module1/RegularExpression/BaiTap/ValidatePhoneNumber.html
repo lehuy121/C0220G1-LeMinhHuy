@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ValidatePhoneNumber</title>
+</head>
+<body>
+<script>
+    /*Số điện thoại hợp lệ cần đạt theo mẫu sau: (xx)-(0xxxxxxxxx)
+    x là ký tự số
+    Không chứa các ký tự đặc biệt
+    Ví dụ số điện thoại hợp lệ: (84)-(0978489648)
+    Ví dụ tên lớp không hợp lệ: (a8)-(22222222)*/
+    function isPhoneNumber(phoneNumber) {
+        let regExp = /\(([\d]{2})+\)-\(0([\d]{9})+\)/;
+        return regExp.test(phoneNumber);
+    }
+
+    let phone1 = "(12)-(0234567890)";
+    let phone2 = "(12)-(9234567890)";
+    let phone3 = "(12)-(0123678rdr)";
+    document.write("<h1>" + "Valid Phone Number Pattern: (xx)-(0xxxxxxxxx)" + "</h1>" + "<br>");
+    document.write("<h3>" + "Valid Phone Number: " + phone1 + "    " + isPhoneNumber(phone1) + " </h3>" + "<br>");
+    document.write("<h3>" + "Invalid Phone Number: " + phone2 + "    " + isPhoneNumber(phone2) + " </h3>" + "<br>");
+    document.write("<h3>" + "Invalid Phone Number: " + phone3 + "    " + isPhoneNumber(phone3) + " </h3>" + "<br>");
+
+</script>
+</body>
+</html>

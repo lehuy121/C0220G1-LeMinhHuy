@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ValidateEmail</title>
+</head>
+<body>
+<script>
+   /* Một email hợp lệ cần đạt các yêu cầu sau:
+    Bắt đầu bằng một ký tự
+    Không chứa các ký tự đặc biệt
+    Có một ký tự @ ngăn cách tên email và domain
+    Domain phải hợp lệ*/
+function isEmail(email){
+    let regExp = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    return regExp.test(email);
+}
+document.write("<h3>"+"Valid Email: abc123@gmail.com - "+isEmail("abc123@gmail.com")+"</h3>"+"<br>");
+document.write("<h3>"+"Valid Email: abcWW123@gmail.com - "+isEmail("abcWW123@gmail.com")+"</h3>"+"<br>");
+document.write("<h3>"+"Invalid Email: ab@gmail. - "+isEmail("ab@gmail.")+"</h3>"+"<br>")
+document.write("<h3>"+"Invalid Email: @#abc@gmail.com - "+isEmail("@#abc@gmail.com")+"</h3>"+"<br>")
+</script>
+</body>
+</html>
