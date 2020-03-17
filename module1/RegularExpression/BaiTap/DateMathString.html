@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DateMathString</title>
+</head>
+<body>
+<script>
+    let date = new Date(12,1996);
+    let day = date.getDate();
+    let month = date.getMonth() +1 ;
+    let currentYear = date.getFullYear();
+    document.write("get current Date: " + day + " " + month + " " + currentYear);
+
+    function livingYears() {
+        return currentYear - 1996;
+    }
+    function livingMonths(){
+        let getLivingYear = livingYears();
+        return getLivingYear* 12;
+    }
+    function livingDays(){
+        let getLivingYear = livingYears();
+        return getLivingYear * 365 ;
+    }
+
+    function display() {
+        document.write("<h1>" + "I'm Living " + livingYears() + " Years" + "</h1>");
+        document.write("<h1>" + "I'm Living " + livingMonths() + " Months" + "</h1>");
+        document.write("<h1>" + "I'm Living " + livingDays() + " Days" + "</h1>");
+    }
+
+    display();
+</script>
+</body>
+</html>

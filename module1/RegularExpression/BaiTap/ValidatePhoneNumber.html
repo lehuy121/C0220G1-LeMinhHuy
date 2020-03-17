@@ -12,7 +12,7 @@
     Ví dụ số điện thoại hợp lệ: (84)-(0978489648)
     Ví dụ tên lớp không hợp lệ: (a8)-(22222222)*/
     function isPhoneNumber(phoneNumber) {
-        let regExp = /\(([\d]{2})+\)-\(0([\d]{9})+\)/;
+        let regExp = /^\(([\d]{2})+\)-\(0([\d]{9})+\)$/;
         return regExp.test(phoneNumber);
     }
 

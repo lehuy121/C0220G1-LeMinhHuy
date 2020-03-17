@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Bài 1: Kiểm tra chuỗi đưa vào có đúng dạng dd/mm/yyyy
+    let datePattern = /^(0[1-9]|1[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d)$/;
+    //Bài 2: Đếm số từ trong một chuỗi
+    let pattern = /a/g;
+    let stringA = "hello javascript learning regular expression";
+    let stringB = "1111111111111111111111";
+
+    function countingChar(string) {
+        let result = string.match(pattern);
+        if (result === null) {
+            console.log("Not found");
+        } else {
+            return result.length;
+        }
+
+    }
+
+    // Bài 3: Đếm số nguyên âm/phụ âm trong một chuỗi
+    let vowelPattern = /[aeiou]/gi;
+    let consonantsPattern = /[^aeiou]/gi;
+
+    function countingVowel(string) {
+        let result = string.match(vowelPattern);
+        return result.length;
+    }
+
+    function countingConsonants(string) {
+        let result = string.match(consonantsPattern);
+        return result.length;
+    }
+
+    //Bài 4: Kiểm tra mã số bảo mật hợp lệ: code hop le 4 so cuoi la 2020
+    let codePattern = /2[0]2[0]$/;
+    let validCode = "awdawd212$%^^awdwa202020";
+    let invalidCode = "626363626awdawd202002";
+
+    function isSecurityCode(codeNum) {
+        return codePattern.test(codeNum);
+    }
+
+    function display() {
+        document.write("<h1>" + "String is: " + stringA + "</h1>");
+        document.write("<h1>" + "Number of character a: " + countingChar(stringA) + "</h1>");
+        document.write("<h1>" + "Number of Vowel: " + countingVowel(stringA) + "</h1>");
+        document.write("<h1>" + "Number of Consonants: " + countingConsonants(stringA) + "</h1>");
+        document.write("<h1>" + "Valid Pattern at last number is: 2020" + "</h1>");
+        document.write("<h1>" + "Valid security code: " + validCode + "    " + isSecurityCode(validCode) + "</h1>");
+        document.write("<h1>" + "Invalid security code: " + invalidCode + "    " + isSecurityCode(invalidCode) + "</h1>");
+    }
+
+    display();
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ValidateAccount</title>
+</head>
+<body>
+<script>
+    /*Một tài khoản hợp lệ cần đạt các yêu cầu sau:
+
+        Không chứa các ký tự đặc biệt
+    Ít nhất là 6 ký tự
+    Không chứa các ký tự viết hoa
+    Cho phép dấu gạch dưới (_)*/
+
+    function isAccount(){
+        let regExp = /^([\da-z_]{6,})$/;
+        let input = prompt("Enter account");
+        if(regExp.test(input)){
+            alert("Account is valid")
+        }else{
+            alert("Account is not valid");
+        }
+    }
+    isAccount();
+</script>
+</body>
+</html>

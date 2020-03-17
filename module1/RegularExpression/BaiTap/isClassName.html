@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validate Class Name</title>
+</head>
+<body>
+<script>
+   /* Tên một lớp học hợp lệ cần đạt các yêu cầu sau:
+     Bắt đầu bằng một ký tự chữ hoa C hoặc A hoặc P
+    Không chứa các ký tự đặc biệt
+    Theo sau ký tự bắt đầu là 4 ký tự số
+    Kết thúc phải là 1 trong những ký tự chữ hoa sau: G, H, I, K, L, M
+    Ví dụ tên lớp hợp lệ: C0318G
+    Ví dụ tên lớp không hợp lệ: M0318G, P0323A*/
+   function isClassName(){
+       let regExp = /^[CAP]([\d]{4})[GHIKLM]$/;
+       let input = prompt("Enter Class Name");
+       if(regExp.test(input)){
+           alert("Class Name is valid")
+       }else{
+           alert("Class Name is not valid");
+       }
+   }
+   isClassName();
+</script>
+</body>
+</html>
