@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* let birthday = new Date("1996-06-12");
+    let nowDate = new Date("2020-03-18");
+    let diff = nowDate.getTime() - birthday.getTime();
+    let year = nowDate.getFullYear() - birthday.getFullYear();
+    let month = Math.round(diff / 1000 / 60 / 60 / 24 / 12);
+    let totalDays = Math.round(diff / 1000 / 60 / 60 / 24);
+    let hours = Math.round(diff / 1000 / 60 / 60);
+    let minutes = Math.round(diff / 1000 / 60);
+    let second = Math.round(diff / 1000);
+    alert("1.Tôi đã sống " + year + " năm" + "\n2.Tôi đã sống " + month + " tháng" + "\n3.Tôi đã sống " + totalDays +
+        " ngày" + "\n4.Tôi đã sống " + hours + " giờ" + "\n5.Tôi đã sống " + minutes + " phút" + "\n6.Tôi đã sống " +
+        second + " giây");*/
+
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const firstDate = new Date(1996, 6, 12);
+    const secondDate = new Date(2020, 3, 18);
+
+    const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+    console.log(diffDays);
+</script>
+</body>
+</html>

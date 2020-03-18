@@ -1,0 +1,20 @@
+.container {
+}
+.menu{
+
+}
+.output{
+    display: inline-grid;
+}
+input{
+    height: 18px;
+    width: 150px;
+    font-size: 18px;
+}
+select{
+    height: 24px;
+    width: 154px;
+}
+label{
+    font-size: 14px;
+}

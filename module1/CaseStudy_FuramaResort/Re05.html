@@ -37,16 +37,20 @@
     }
 
     function addNewCustomer() {
-        element.name = prompt("Input Name");
-        element.age = prompt("Input Age");
-        element.address = prompt("Input Address");
-        storesData.push(element);
+            element.name = prompt("Input Name");
+            element.age = prompt("Input Age");
+            element.address = prompt("Input Address");
+            storesData.push(element);
     }
 
     function displayCustomer() {
-        document.write("Name: " + storesData[0].name + "<br>");
-        document.write("Age: " + storesData[0].age + "<br>");
-        document.write("Address: " + storesData[0].address);
+        console.log(storesData);
+        for (let i = 0; i < storesData.length; i++) {
+            document.write("Name: " + storesData[i].name + "<br>");
+            document.write("Age: " + storesData[i].age + "<br>");
+            document.write("Address: " + storesData[i].address);
+        }
+
     }
 
     function editCustomer() {

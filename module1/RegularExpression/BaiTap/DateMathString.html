@@ -6,28 +6,46 @@
 </head>
 <body>
 <script>
-    let date = new Date(12,1996);
+    let date = new Date();
     let day = date.getDate();
-    let month = date.getMonth() +1 ;
+    let month = date.getMonth() + 1;
     let currentYear = date.getFullYear();
     document.write("get current Date: " + day + " " + month + " " + currentYear);
 
     function livingYears() {
         return currentYear - 1996;
     }
-    function livingMonths(){
+
+    function livingMonths() {
         let getLivingYear = livingYears();
-        return getLivingYear* 12;
+        return getLivingYear * 12;
     }
-    function livingDays(){
-        let getLivingYear = livingYears();
-        return getLivingYear * 365 ;
+    function livingDays(yearBorn) {
+        const ONE_DAY = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+        let firstDate = new Date(yearBorn, 6, 12);
+        let secondDate = new Date(currentYear, month, day);
+        return Math.round(Math.abs((firstDate - secondDate) / ONE_DAY));
+    }
+    function getDaysOfCurrentYear(startYear) {
+        let now = new Date();
+        let start = new Date(startYear, 0, 0);
+        const ONE_DAY = 24 * 60 * 60 * 1000;
+        return Math.round(Math.abs((now - start) / ONE_DAY));
+    }
+    function isLeapYear(year) {
+        return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
+    }
+
+    function days_of_a_year(year) {
+
+        return isLeapYear(year) ? 366 : 365;
     }
 
     function display() {
         document.write("<h1>" + "I'm Living " + livingYears() + " Years" + "</h1>");
         document.write("<h1>" + "I'm Living " + livingMonths() + " Months" + "</h1>");
-        document.write("<h1>" + "I'm Living " + livingDays() + " Days" + "</h1>");
+        document.write("<h1>" + "I'm Living " + livingDays(1996) + " Days" + "</h1>");
+        document.write("<h1>" + "Days of current Year: " + days_of_a_year(currentYear) + " Days" + "</h1>");
     }
 
     display();
