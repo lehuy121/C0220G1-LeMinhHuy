@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Min Max</title>
+</head>
+<body>
+<script>
+    function findMin(arr) {
+        let min = arr[0];
+        for (let i = 1; i < arr.length; ++i) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    function findMax(arr) {
+        let max = arr[0];
+        for (let i = 1; i < arr.length; ++i) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+    function findSecondMax(arr) {
+        let firstMax = arr[0];
+        let secondMax = arr[0];
+        for (let i = 1; i < arr.length; ++i) {
+            if (arr[i] > firstMax) {
+                secondMax =firstMax;
+                firstMax = arr[i];
+            }
+        }
+        return secondMax;
+    }
+
+    function displayArr(arr) {
+        for (let i = 0; i < arr.length; ++i) {
+            console.log(arr[i] + " ");
+            if (arr[i] % 10 === 9) {
+                console.log("\n");
+            }
+            if (arr[i] % 10 !== 0) {
+                console.log("\n");
+            }
+        }
+
+    }
+    let nums = [];
+    for (let i = 0; i < 100; ++i) {
+        nums[i] = Math.floor(Math.random() * 101);
+    }
+    let minValue = findMin(nums);
+    let maxValue = findMax(nums);
+    let secondMaxValue = findSecondMax(nums);
+    displayArr(nums);
+    document.write("<br/>");
+    document.write("<h1>"+"The minimum value is: " + minValue+"</h1>");
+    document.write("<h1>"+"The maximum value is: " + maxValue+"</h1>");
+    document.write("<h1>"+"The second maximum value is: " + secondMaxValue+"</h1>");
+</script>
+</body>
+</html>

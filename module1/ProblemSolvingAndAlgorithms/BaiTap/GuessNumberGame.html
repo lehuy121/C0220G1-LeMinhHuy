@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess Number Game</title>
+</head>
+<body>
+<script>
+    function createNumArr(rangeNums) {
+        let nums = [];
+        let i = 1;
+        while (nums.push(i++) < rangeNums) {
+        }
+        return nums;
+    }
+    // tuyen tinh
+    /**
+     * @return {number}
+     */
+    function FindNumberInArr(array, number) {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === number) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    /**
+     * @return {number}
+     */
+    // de quy
+    function binarySearch(array, targetValue) {
+        let start = 0;
+        let end = array.length - 1;
+        let mid;
+        while(start <= end) {
+            mid = Math.floor((end + start) / 2);
+
+            if (array[mid] === targetValue) {
+                return mid;
+            }
+            else if (array[mid] < targetValue) {
+                start = mid + 1;
+            }
+            else {
+                end = mid - 1;
+            }
+        }
+
+        return -1;
+    }
+    let iterativeFunction = function (arr, x) {
+        let start=0, end=arr.length-1;
+        // Iterate while start not meets end
+        while (start<=end){
+            // Find the mid index
+            let mid=Math.floor((start + end)/2);
+            // If element is present at mid, return True
+            if (arr[mid]===x) return mid;
+            // Else look in left or right half accordingly
+            else if (arr[mid] < x)
+                start = mid + 1;
+            else
+                end = mid - 1;
+        }
+        return false;
+    };
+    let data = createNumArr(10000);
+    let input = parseInt(prompt("Input number"));
+    function usingLoop(){
+        document.write("<h1>"+FindNumberInArr(data,input)+" <<<<<< Index "+"</h1>");
+        document.write("<h1>"+performance.now()+" milliseconds"+"</h1>");
+    }
+
+    function recursiveApproach(){
+        document.write("<h1>"+binarySearch(data,input)+" <<<<<< Index: (Recursive Approach) "+"</h1>");
+        document.write("<h1>"+performance.now()+" milliseconds"+"</h1>");
+    }
+
+    function iterativeApproach(){
+        document.write("<h1>"+iterativeFunction(data,input)+" <<<<<< Index: (Iterative Approach) "+"</h1>");
+        document.write("<h1>"+performance.now()+" milliseconds"+"</h1>");
+    }
+
+
+   // usingLoop(); //2542
+  // recursiveApproach(); // 2029
+   iterativeApproach(); //1480
+</script>
+</body>
+</html>
