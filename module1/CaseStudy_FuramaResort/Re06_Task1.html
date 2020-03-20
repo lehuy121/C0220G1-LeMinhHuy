@@ -4,413 +4,101 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="Re06_Task1.css">
+    <script src="Re06.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="menu">
         <button onclick="mainMenu();">Menu</button>
         <button onclick="getAllCustomers();">Get Customer</button>
-        <select id="customer" onchange="displayByIndex(this.value);">
-
-        </select>
-
+        <select id="customer" onchange="displayByCustomerName(this.value);"></select>
+        <button onclick="getAllEmployee();">Get Employees</button>
+        <select id="employee" onchange="displayByEmployeeName(this.value);"></select>
     </div>
-    <div class="output">
-        <label>Payment($)</label>
-        <input type="text" disabled id="payment"></input>
+    <div id="customerBlock">
+        <div class="innerCustomer">
+            <label>Payment($)</label>
+            <input type="text" disabled id="payment"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>Name</label>
+            <input type="text" disabled id="customerName"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>ID Number</label>
+            <input type="text" disabled id="idNumber"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>Date Of Birth</label>
+            <input type="text" disabled id="birth"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>Email</label>
+            <input type="text" disabled id="email"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>Address</label>
+            <input type="text" disabled id="address"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>Customer Type</label>
+            <input type="text" disabled id="customerType"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>Discount(%)</label>
+            <input type="text" disabled id="discount"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>Quanlity Includes</label>
+            <input type="text" disabled id="quantityIncludes"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>Rent Days</label>
+            <input type="text" disabled id="rentDays"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>Services Type</label>
+            <input type="text" disabled id="serviceType"></input>
+        </div>
+        <div class="innerCustomer">
+            <label>Rooms Type</label>
+            <input type="text" disabled id="roomType"></input>
+        </div>
     </div>
-    <div class="output">
-        <label>Name</label>
-        <input type="text" disabled id="customerName"></input>
-    </div>
-    <div class="output">
-        <label>ID Number</label>
-        <input type="text" disabled id="idNumber"></input>
-    </div>
-    <div class="output">
-        <label>Date Of Birth</label>
-        <input type="text" disabled id="birth"></input>
-    </div>
-    <div class="output">
-        <label>Email</label>
-        <input type="text" disabled id="email"></input>
-    </div>
-    <div class="output">
-        <label>Address</label>
-        <input type="text" disabled id="address"></input>
-    </div>
-    <div class="output">
-        <label>Customer Type</label>
-        <input type="text" disabled id="customerType"></input>
-    </div>
-    <div class="output">
-        <label>Discount(%)</label>
-        <input type="text" disabled id="discount"></input>
-    </div>
-    <div class="output">
-        <label>Quanlity Includes</label>
-        <input type="text" disabled id="quantityIncludes"></input>
-    </div>
-    <div class="output">
-        <label>Rent Days</label>
-        <input type="text" disabled id="rentDays"></input>
-    </div>
-    <div class="output">
-        <label>Services Type</label>
-        <input type="text" disabled id="serviceType"></input>
-    </div>
-    <div class="output">
-        <label>Rooms Type</label>
-        <input type="text" disabled id="roomType"></input>
+    <div id="employeeBlock">
+        <div class="innerEmployee">
+            <label>Salary($)</label>
+            <input type="text" disabled id="salary"></input>
+        </div>
+        <div class="innerEmployee">
+            <label>Name</label>
+            <input type="text" disabled id="employeeName"></input>
+        </div>
+        <div class="innerEmployee">
+            <label>ID Number</label>
+            <input type="text" disabled id="employeeIdNumber"></input>
+        </div>
+        <div class="innerEmployee">
+            <label>Date Of Birth</label>
+            <input type="text" disabled id="employeeBirth"></input>
+        </div>
+        <div class="innerEmployee">
+            <label>Email</label>
+            <input type="text" disabled id="employeePhoneNumber"></input>
+        </div>
+        <div class="innerEmployee">
+            <label>Level</label>
+            <input type="text" disabled id="employeeLevel"></input>
+        </div>
+        <div class="innerEmployee">
+            <label>Position</label>
+            <input type="text" disabled id="employeePosition"></input>
+        </div>
+        <div class="innerEmployee">
+            <label>Working Part</label>
+            <input type="text" disabled id="employeeWorkingPart"></input>
+        </div>
     </div>
 </div>
-<script>
-    let listCustomerArr = [];
-    let objNewCustomer = [];
-    let newCustomer;
-
-    class Customer {
-        constructor() {
-            this.name = "";
-            this.idNumber = "";
-            this.birth = "";
-            this.email = "";
-            this.address = "";
-            this.customerType = "";
-            this.discount = 0;
-            this.quantityIncludes = 0;
-            this.rentDays = 0;
-            this.serviceType = "";
-            this.roomType = "";
-            this.payment = 0;
-        }
-
-
-        getName() {
-            return this.name;
-        }
-
-        setName() {
-            let name = prompt("Input Name");
-            return this.name = name;
-        }
-
-        getIdNumber() {
-            return this.idNumber;
-        }
-
-        setIdNumber() {
-            let idNumber;
-            do {
-                idNumber = prompt("Input Id Number");
-                if (this.isNumber(idNumber)) {
-                    return this.idNumber = idNumber;
-                } else {
-                    alert("Id number invalid");
-                }
-            } while (!this.isNumber(idNumber));
-
-        }
-
-        getBirth() {
-            return this.birth;
-        }
-
-        setBirth() {
-            let birth;
-            do {
-                birth = prompt("Input Birth(Format is DD/MM/YYYY)");
-                if (this.isBirth(birth)) {
-                    return this.birth = birth;
-                } else {
-                    alert("Birth invalid");
-                }
-            } while (!this.isBirth(birth));
-        }
-
-        getEmail() {
-            return this.email;
-        }
-
-        setEmail() {
-            let email;
-            do {
-                email = prompt("Input Email(Format is abc@abc.com)");
-                if (this.isEmail(email)) {
-                    return this.email = email;
-                } else {
-                    alert("Email invalid");
-                }
-            } while (!this.isEmail(email));
-        }
-
-        getAddress() {
-            return this.address;
-        }
-
-        setAddress() {
-            let address = prompt("Input Address");
-            return this.address = address;
-        }
-
-        getCustomerType() {
-            return this.customerType;
-        }
-
-        setCustomerType() {
-            let customerType = prompt("Customer Type");
-            return this.customerType = customerType;
-        }
-
-        getDiscount() {
-            return this.discount;
-        }
-
-        setDiscount() {
-            let discount;
-            do {
-                discount = parseInt(prompt("Input Discount"));
-                if (this.isNumber(discount)) {
-                    return this.discount = discount;
-                } else {
-                    alert("Discount must be a number");
-                }
-            } while (!this.isNumber(discount));
-
-        }
-
-        getQuantityIncludes() {
-            return this.quantityIncludes;
-        }
-
-        setQuantityIncludes() {
-            let quantityIncludes;
-            do {
-                quantityIncludes = prompt("Input Quantity Includes");
-                if (this.isNumber(quantityIncludes)) {
-                    return this.quantityIncludes = quantityIncludes;
-                } else {
-                    alert("QuantityIncludes must be a number");
-                }
-            } while (!this.isNumber(quantityIncludes));
-        }
-
-        getRentDays() {
-            return this.rentDays;
-        }
-
-        setRentDays() {
-            let rentDays;
-            do {
-                rentDays = prompt("Input Rent Days");
-                if (this.isNumber(rentDays)) {
-                    return this.rentDays = rentDays;
-                } else {
-                    alert("RentDays must be a number");
-                }
-            } while (!this.isNumber(rentDays));
-        }
-
-        getServiceType() {
-            return this.serviceType;
-        }
-
-        setServiceType() {
-            let serviceType;
-            do {
-                serviceType = prompt("Input Service Type: (Villa|House|Room)");
-                if (this.isServiceType(serviceType)) {
-                    return this.serviceType = serviceType;
-                } else {
-                    alert("Invalid")
-                }
-            } while (!this.isServiceType(serviceType));
-
-        }
-
-        getRoomType() {
-            return this.roomType;
-        }
-
-        setRoomType() {
-            let roomType = prompt("Input Room Type");
-            return this.roomType = roomType;
-        }
-
-        getPayment() {
-            return this.payment;
-        }
-
-        calculatePayment() {
-            let payment;
-            let percentDiscount;
-            if (this.getServiceType() === "Villa") {
-                payment = 500 * this.rentDays;
-                percentDiscount = 1 - this.discount / 100;
-                return this.payment = payment * percentDiscount;
-            } else if (this.getServiceType() === "House") {
-                payment = 300 * this.rentDays;
-                percentDiscount = 1 - this.discount / 100;
-                return this.payment = payment * percentDiscount;
-            } else if (this.getServiceType() === "Room") {
-                payment = 100 * this.rentDays;
-                percentDiscount = 1 - this.discount / 100;
-                return this.payment = payment * percentDiscount;
-            }
-
-        }
-
-        isEmail(email) {
-            let regExp = /^([a-z]{3})@([a-z]{3})\.(com)$/;
-            return regExp.test(email);
-        }
-
-        isNumber(number) {
-            let regExp = /^([\d]+)$/;
-            return regExp.test(number);
-        }
-
-        isBirth(birth) {
-            let regExp = /^(0[1-9]|1[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d)$/;
-            return regExp.test(birth);
-        }
-
-        isServiceType(string) {
-            let regExp = /^(Villa|House|Room)$/;
-            return regExp.test(string);
-        }
-    }
-
-    function mainMenu() {
-        let flag = false;
-        let menuAdd = "Enter 1: Add Name Customer";
-        let menuDisplay = "Enter 2: Display Customer";
-        let menuEdit = "Enter 3: Edit Customer";
-        let menuDelete = "Enter 4: Delete Customer";
-        let quitProgram = "Enter q: Quit Menu";
-        do {
-            let inputMenu = prompt(menuAdd + "\n" + menuDisplay + "\n" + menuEdit + "\n" + menuDelete + "\n" + quitProgram);
-            if (inputMenu === "1") {
-                addNewCustomer();
-                flag = false;
-            } else if (inputMenu === "2") {
-                displayCustomer();
-                flag = true;
-            } else if (inputMenu === "3") {
-                editCustomer();
-                flag = false;
-            } else if (inputMenu === "4") {
-                deleteCustomer();
-                flag = false;
-            } else if (inputMenu === "q") {
-                return flag = true;
-            }
-        } while (!flag);
-    }
-
-    function addNewCustomer() {
-        let newCustomer = new Customer();
-        newCustomer.setName();
-        newCustomer.setIdNumber();
-        newCustomer.setBirth();
-        newCustomer.setEmail();
-        newCustomer.setAddress();
-        newCustomer.setCustomerType();
-        newCustomer.setDiscount();
-        newCustomer.setQuantityIncludes();
-        newCustomer.setRentDays();
-        newCustomer.setServiceType();
-        newCustomer.setRoomType();
-        newCustomer.calculatePayment();
-        listCustomerArr.push(newCustomer);
-        console.log(newCustomer.calculatePayment());
-    }
-
-    function editCustomer() {
-        let element = document.getElementById("customer");
-        let customer = getValueOptionSelected(element);
-        let newCustomer = new Customer();
-        newCustomer.setName();
-        newCustomer.setIdNumber();
-        newCustomer.setBirth();
-        newCustomer.setEmail();
-        newCustomer.setAddress();
-        newCustomer.setCustomerType();
-        newCustomer.setDiscount();
-        newCustomer.setQuantityIncludes();
-        newCustomer.setRentDays();
-        newCustomer.setServiceType();
-        newCustomer.setRoomType();
-        newCustomer.calculatePayment();
-        listCustomerArr.splice(customer, 1, newCustomer)
-    }
-
-    function deleteCustomer() {
-        let element = document.getElementById("customer");
-        let customer = getValueOptionSelected(element);
-        listCustomerArr.splice(customer, 1)
-    }
-
-    function getValueOptionSelected(element) {
-        return element.options[element.selectedIndex].value;
-    }
-
-    function addItemToSelect(elementID, text, value) {
-        let x = document.getElementById(elementID);
-        let option = document.createElement("option");
-        option.text = text;
-        option.value = value;
-        x.add(option);
-    }
-
-    function cleanSelectOption() {
-        let select = document.getElementById("customer");
-        let length = select.options.length;
-        for (let i = length - 1; i >= 0; i--) {
-            select.options[i] = null;
-        }
-    }
-
-    function getAllCustomers() {
-        cleanSelectOption();
-        for (let i = 0; i < listCustomerArr.length; i++) {
-            addItemToSelect("customer", listCustomerArr[i].name, i);
-        }
-    }
-
-    function displayByIndex(index) {
-        document.getElementById("customerName").value = listCustomerArr[index].name;
-        document.getElementById("idNumber").value = listCustomerArr[index].idNumber;
-        document.getElementById("birth").value = listCustomerArr[index].birth;
-        document.getElementById("email").value = listCustomerArr[index].email;
-        document.getElementById("address").value = listCustomerArr[index].address;
-        document.getElementById("customerType").value = listCustomerArr[index].customerType;
-        document.getElementById("discount").value = listCustomerArr[index].discount;
-        document.getElementById("quantityIncludes").value = listCustomerArr[index].quantityIncludes;
-        document.getElementById("rentDays").value = listCustomerArr[index].rentDays;
-        document.getElementById("serviceType").value = listCustomerArr[index].serviceType;
-        document.getElementById("roomType").value = listCustomerArr[index].roomType;
-        document.getElementById("payment").value = listCustomerArr[index].payment;
-    }
-
-    function displayCustomer() {
-
-        for (let i = 0; i < listCustomerArr.length; i++) {
-            document.getElementById("customerName").value = listCustomerArr[i].name;
-            document.getElementById("idNumber").value = listCustomerArr[i].idNumber;
-            document.getElementById("birth").value = listCustomerArr[i].birth;
-            document.getElementById("email").value = listCustomerArr[i].email;
-            document.getElementById("address").value = listCustomerArr[i].address;
-            document.getElementById("customerType").value = listCustomerArr[i].customerType;
-            document.getElementById("discount").value = listCustomerArr[i].discount;
-            document.getElementById("quantityIncludes").value = listCustomerArr[i].quantityIncludes;
-            document.getElementById("rentDays").value = listCustomerArr[i].rentDays;
-            document.getElementById("serviceType").value = listCustomerArr[i].serviceType;
-            document.getElementById("roomType").value = listCustomerArr[i].roomType;
-            document.getElementById("payment").value = listCustomerArr[i].payment;
-
-        }
-    }
-</script>
 </body>
 </html>

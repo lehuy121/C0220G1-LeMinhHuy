@@ -1,26 +1,46 @@
 .container {
     width: 500px;
 }
-.menu{
+
+.menu {
     padding-bottom: 20px;
 }
-.output{
+
+#customerBlock {
+
+}
+
+#employeeBlock {
+
+}
+
+.innerCustomer {
     display: inline-grid;
     padding-bottom: 10px;
     padding-right: 10px;
 }
-input{
+
+.innerEmployee {
+    display: inline-grid;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+input {
     height: 18px;
     width: 150px;
     font-size: 18px;
 }
-select{
+
+select {
     height: 21px;
-    width: 154px;
+    width: 109px;
 }
-label{
+
+label {
     font-size: 14px;
 }
-button{
+
+button {
 
 }
