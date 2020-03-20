@@ -1,10 +1,13 @@
 .container {
+    width: 500px;
 }
 .menu{
-
+    padding-bottom: 20px;
 }
 .output{
     display: inline-grid;
+    padding-bottom: 10px;
+    padding-right: 10px;
 }
 input{
     height: 18px;
@@ -12,9 +15,12 @@ input{
     font-size: 18px;
 }
 select{
-    height: 24px;
+    height: 21px;
     width: 154px;
 }
 label{
     font-size: 14px;
+}
+button{
+
 }
