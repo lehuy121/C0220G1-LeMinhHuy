@@ -219,17 +219,25 @@ class Employee {
         manage: "Manage",
         director: "Director",
     };
+    defineWorkingParts = {
+        sale: "Sale",
+        marketing: "Marketing",
+        administrative: "Administrative",
+        serve: "Serve",
+        manage: "Manage",
+    };
     defineSalaryByLevel = {
         intermediate: 120,
         colleges: 140,
         university: 160,
         afterUniversity: 200,
     };
-    defineSubsidizeByWorkingPart = {
+    defineSubsidizeByWorkingParts = {
         sale: 300,
         marketing: 200,
         manager: 500
     };
+
 
     getName() {
         return this.name;
@@ -348,29 +356,23 @@ class Employee {
         return this.workingPart;
     }
 
-    defineWorkingPart = {
-        sale: "Sale",
-        marketing: "Marketing",
-        administrative: "Administrative",
-        serve: "Serve",
-        manage: "Manage",
-    };
+
 
     setWorkingPart() {
         let workingPart;
         do {
-            workingPart = prompt("Input WorkingPart: (1=Sale | 2=Marketing | 3=Administrative | 4=Serve | 5=Manage");
+            workingPart = prompt("Input WorkingParts: (1=Sale | 2=Marketing | 3=Administrative | 4=Serve | 5=Manage");
             if (isWorkingPart(workingPart)) {
                 if (workingPart === "1") {
-                    return this.workingPart = this.defineWorkingPart.sale;
+                    return this.workingPart = this.defineWorkingParts.sale;
                 } else if (workingPart === "2") {
-                    return this.workingPart = this.defineWorkingPart.marketing;
+                    return this.workingPart = this.defineWorkingParts.marketing;
                 } else if (workingPart === "3") {
-                    return this.workingPart = this.defineWorkingPart.administrative;
+                    return this.workingPart = this.defineWorkingParts.administrative;
                 } else if (workingPart === "4") {
-                    return this.workingPart = this.defineWorkingPart.serve;
+                    return this.workingPart = this.defineWorkingParts.serve;
                 } else if (workingPart === "5") {
-                    return this.workingPart = this.defineWorkingPart.manage;
+                    return this.workingPart = this.defineWorkingParts.manage;
                 }
             } else {
                 alert("Invalid")
@@ -387,42 +389,42 @@ class Employee {
 
     calculateSalary() {
         if (this.getLevel() === this.defineLevel.intermediate) {
-            if (this.getLevel() === this.defineLevel.intermediate && this.getWorkingPart() === this.defineWorkingPart.sale) {
-                return this.salary = this.defineSalaryByLevel.intermediate + this.defineSubsidizeByWorkingPart.sale;
-            } else if (this.getLevel() === this.defineLevel.intermediate && this.getWorkingPart() === this.defineWorkingPart.marketing) {
-                return this.salary = this.defineSalaryByLevel.intermediate + this.defineSubsidizeByWorkingPart.marketing;
-            } else if (this.getLevel() === this.defineLevel.intermediate && this.getWorkingPart() === this.defineWorkingPart.manage) {
-                return this.salary = this.defineSalaryByLevel.intermediate + this.defineSubsidizeByWorkingPart.manager;
+            if (this.getLevel() === this.defineLevel.intermediate && this.getWorkingPart() === this.defineWorkingParts.sale) {
+                return this.salary = this.defineSalaryByLevel.intermediate + this.defineSubsidizeByWorkingParts.sale;
+            } else if (this.getLevel() === this.defineLevel.intermediate && this.getWorkingPart() === this.defineWorkingParts.marketing) {
+                return this.salary = this.defineSalaryByLevel.intermediate + this.defineSubsidizeByWorkingParts.marketing;
+            } else if (this.getLevel() === this.defineLevel.intermediate && this.getWorkingPart() === this.defineWorkingParts.manage) {
+                return this.salary = this.defineSalaryByLevel.intermediate + this.defineSubsidizeByWorkingParts.manager;
             } else {
                 return this.salary = this.defineSalaryByLevel.intermediate;
             }
         } else if (this.getLevel() === this.defineLevel.colleges) {
-            if (this.getLevel() === this.defineLevel.colleges && this.getWorkingPart() === this.defineWorkingPart.sale) {
-                return this.salary = this.defineSalaryByLevel.colleges + this.defineSubsidizeByWorkingPart.sale;
-            } else if (this.getLevel() === this.defineLevel.colleges && this.getWorkingPart() === this.defineWorkingPart.marketing) {
-                return this.salary = this.defineSalaryByLevel.colleges + this.defineSubsidizeByWorkingPart.marketing;
-            } else if (this.getLevel() === this.defineLevel.colleges && this.getWorkingPart() === this.defineWorkingPart.manage) {
-                return this.salary = this.defineSalaryByLevel.colleges + this.defineSubsidizeByWorkingPart.manager;
+            if (this.getLevel() === this.defineLevel.colleges && this.getWorkingPart() === this.defineWorkingParts.sale) {
+                return this.salary = this.defineSalaryByLevel.colleges + this.defineSubsidizeByWorkingParts.sale;
+            } else if (this.getLevel() === this.defineLevel.colleges && this.getWorkingPart() === this.defineWorkingParts.marketing) {
+                return this.salary = this.defineSalaryByLevel.colleges + this.defineSubsidizeByWorkingParts.marketing;
+            } else if (this.getLevel() === this.defineLevel.colleges && this.getWorkingPart() === this.defineWorkingParts.manage) {
+                return this.salary = this.defineSalaryByLevel.colleges + this.defineSubsidizeByWorkingParts.manager;
             } else {
                 return this.salary = this.defineSalaryByLevel.colleges;
             }
         } else if (this.getLevel() === this.defineLevel.university) {
-            if (this.getLevel() === this.defineLevel.university && this.getWorkingPart() === this.defineWorkingPart.sale) {
-                return this.salary = this.defineSalaryByLevel.university + this.defineSubsidizeByWorkingPart.sale;
-            } else if (this.getLevel() === this.defineLevel.university && this.getWorkingPart() === this.defineWorkingPart.marketing) {
-                return this.salary = this.defineSalaryByLevel.university + this.defineSubsidizeByWorkingPart.marketing;
-            } else if (this.getLevel() === this.defineLevel.university && this.getWorkingPart() === this.defineWorkingPart.manage) {
-                return this.salary = this.defineSalaryByLevel.university + this.defineSubsidizeByWorkingPart.manager;
+            if (this.getLevel() === this.defineLevel.university && this.getWorkingPart() === this.defineWorkingParts.sale) {
+                return this.salary = this.defineSalaryByLevel.university + this.defineSubsidizeByWorkingParts.sale;
+            } else if (this.getLevel() === this.defineLevel.university && this.getWorkingPart() === this.defineWorkingParts.marketing) {
+                return this.salary = this.defineSalaryByLevel.university + this.defineSubsidizeByWorkingParts.marketing;
+            } else if (this.getLevel() === this.defineLevel.university && this.getWorkingPart() === this.defineWorkingParts.manage) {
+                return this.salary = this.defineSalaryByLevel.university + this.defineSubsidizeByWorkingParts.manager;
             } else {
                 return this.salary = this.defineSalaryByLevel.university;
             }
         } else if (this.getLevel() === this.defineLevel.afterUniversity) {
-            if (this.getLevel() === this.defineLevel.afterUniversity && this.getWorkingPart() === this.defineWorkingPart.sale) {
-                return this.salary = this.defineSalaryByLevel.afterUniversity + this.defineSubsidizeByWorkingPart.sale;
-            } else if (this.getLevel() === this.defineLevel.afterUniversity && this.getWorkingPart() === this.defineWorkingPart.marketing) {
-                return this.salary = this.defineSalaryByLevel.afterUniversity + this.defineSubsidizeByWorkingPart.marketing;
-            } else if (this.getLevel() === this.defineLevel.afterUniversity && this.getWorkingPart() === this.defineWorkingPart.manage) {
-                return this.salary = this.defineSalaryByLevel.afterUniversity + this.defineSubsidizeByWorkingPart.manager;
+            if (this.getLevel() === this.defineLevel.afterUniversity && this.getWorkingPart() === this.defineWorkingParts.sale) {
+                return this.salary = this.defineSalaryByLevel.afterUniversity + this.defineSubsidizeByWorkingParts.sale;
+            } else if (this.getLevel() === this.defineLevel.afterUniversity && this.getWorkingPart() === this.defineWorkingParts.marketing) {
+                return this.salary = this.defineSalaryByLevel.afterUniversity + this.defineSubsidizeByWorkingParts.marketing;
+            } else if (this.getLevel() === this.defineLevel.afterUniversity && this.getWorkingPart() === this.defineWorkingParts.manage) {
+                return this.salary = this.defineSalaryByLevel.afterUniversity + this.defineSubsidizeByWorkingParts.manager;
             } else {
                 return this.salary = this.defineSalaryByLevel.afterUniversity;
             }
@@ -488,7 +490,6 @@ function addNewCustomer() {
     newCustomer.setRoomType();
     newCustomer.calculatePayment();
     listCustomerArr.push(newCustomer);
-    console.log(newCustomer.calculatePayment());
 }
 
 function editCustomer() {
@@ -528,6 +529,7 @@ function deleteCustomer() {
 
 function getAllCustomers() {
     cleanSelectOption("customer");
+    displayCustomerBlock();
     for (let i = 0; i < listCustomerArr.length; i++) {
         addItemToSelect("customer", listCustomerArr[i].name, i);
     }
@@ -549,7 +551,7 @@ function displayByCustomerName(index) {
 }
 
 function displayCustomer() {
-    // displayFeature("customerBlock", "employeeBlock");
+    displayCustomerBlock();
     for (let i = 0; i < listCustomerArr.length; i++) {
         getElementById("customerName").value = listCustomerArr[i].name;
         getElementById("idNumber").value = listCustomerArr[i].idNumber;
@@ -563,7 +565,6 @@ function displayCustomer() {
         getElementById("serviceType").value = listCustomerArr[i].serviceType;
         getElementById("roomType").value = listCustomerArr[i].roomType;
         getElementById("payment").value = listCustomerArr[i].payment;
-
     }
 }
 
@@ -581,7 +582,7 @@ function addNewEmployee() {
 }
 
 function displayEmployee() {
-    // displayFeature("customerBlock", "employeeBlock");
+    displayEmployeeBlock();
     for (let i = 0; i < listEmployeeArr.length; i++) {
         getElementById("employeeName").value = listEmployeeArr[i].name;
         getElementById("employeeIdNumber").value = listEmployeeArr[i].idNumber;
@@ -596,6 +597,7 @@ function displayEmployee() {
 
 function getAllEmployee() {
     cleanSelectOption("employee");
+    displayEmployeeBlock();
     for (let i = 0; i < listEmployeeArr.length; i++) {
         addItemToSelect("employee", listEmployeeArr[i].name, i);
     }
@@ -708,15 +710,16 @@ function isPhoneNumber(phone) {
     return regExp.test(phone);
 }
 
-function displayFeature(customerId, employeeId) {
-    let customer = document.getElementById(customerId);
-    let employee = document.getElementById(employeeId);
-    if (customer.style.display === "none") {
+function displayCustomerBlock() {
+    let customer = document.getElementById("customerBlock");
+    let employee = document.getElementById("employeeBlock");
         employee.style.display = "none";
         customer.style.display = "block";
-    } else if (employee.style.display === "none") {
-        customer.style.display = "none";
-        employee.style.display = "block";
-    }
+}
+function displayEmployeeBlock(){
+    let customer = document.getElementById("customerBlock");
+    let employee = document.getElementById("employeeBlock");
+    customer.style.display = "none";
+    employee.style.display = "block";
 
 }
