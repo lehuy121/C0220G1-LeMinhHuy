@@ -17,7 +17,6 @@ class Customer {
         this.payment = 0;
     }
 
-
     getName() {
         return this.name;
     }
@@ -238,7 +237,6 @@ class Employee {
         manager: 500
     };
 
-
     getName() {
         return this.name;
     }
@@ -356,8 +354,6 @@ class Employee {
         return this.workingPart;
     }
 
-
-
     setWorkingPart() {
         let workingPart;
         do {
@@ -380,12 +376,6 @@ class Employee {
         } while (!isWorkingPart(workingPart));
 
     }
-
-    // luong trinh do +  tro cap vi tri lam viec
-    /*Trợ cấp 500$ cho Employee nào làm ở vị trí Manager
-    Trợ cấp 300$ cho Employee nào làm ở vị trí Sale
-    Trợ cấp 200$ cho Employee làm việc ở vị trí Marketing*/
-
 
     calculateSalary() {
         if (this.getLevel() === this.defineLevel.intermediate) {
@@ -713,10 +703,11 @@ function isPhoneNumber(phone) {
 function displayCustomerBlock() {
     let customer = document.getElementById("customerBlock");
     let employee = document.getElementById("employeeBlock");
-        employee.style.display = "none";
-        customer.style.display = "block";
+    employee.style.display = "none";
+    customer.style.display = "block";
 }
-function displayEmployeeBlock(){
+
+function displayEmployeeBlock() {
     let customer = document.getElementById("customerBlock");
     let employee = document.getElementById("employeeBlock");
     customer.style.display = "none";

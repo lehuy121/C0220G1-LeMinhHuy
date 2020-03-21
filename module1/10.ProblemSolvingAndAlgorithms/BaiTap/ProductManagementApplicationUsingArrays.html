@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management Application Using Arrays</title>
+    <style>
+        #productName{
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+<h3>Add New Product</h3>
+<div class="container">
+    <input id="addNewProduct" placeholder="New Product">
+    <button onclick="app.addNewProduct();">Add</button>
+    <div id="divEdit" style="display: none">
+        <input id="editProduct">
+        <button id="edit">Edit</button>
+    </div>
+</div>
+<h3>Display All Products</h3>
+<div class="products">
+    <table>
+        <tbody>
+            <tr>
+                <th id="productName">Product Name</th>
+                <th id="productCount"><span id="count"></span></th>
+            </tr>
+        </tbody>
+        <tbody id="showProducts">
+        </tbody>
+    </table>
+</div>
+<script>
+    class Products {
+        constructor() {
+            this.productArrays = ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4'];
+        }
+
+        countProducts(products) {
+            let result = products + " Products";
+            return document.getElementById("count").innerHTML = result;
+        }
+
+        addNewProduct() {
+            let addProduct = document.getElementById("addNewProduct");
+            if (addProduct.value === "") {
+                alert("Input Product Name Please!!!")
+            } else {
+                this.productArrays.push(addProduct.value);
+                addProduct.value = "";
+                this.display();
+            }
+
+        }
+
+        clearTbody() {
+            let element = document.getElementById("showProducts");
+            element.innerHTML = "";
+        }
+
+        delete(product) {
+            this.productArrays.splice(product, 1);
+            this.display();
+        }
+
+        edit(product) {
+            let showValue = document.getElementById("editProduct");
+            showValue.value = this.productArrays[product];
+            this.showEdit();
+            let self = this;
+            document.getElementById("edit").onclick = function () {
+                let editedProduct = showValue.value;
+                self.productArrays.splice(product,1,editedProduct);
+                self.closeEdit();
+                self.display();
+            };
+
+        }
+
+        showEdit() {
+            let div = document.getElementById("divEdit");
+            div.style.display = "block";
+        }
+        closeEdit(){
+            let div = document.getElementById("divEdit");
+            div.style.display = "none";
+        }
+        display() {
+            this.clearTbody();
+            let product = "";
+            for (let i = 0; i < this.productArrays.length; i++) {
+                product += '<tr>';
+                product += '<td>' + this.productArrays[i] + '</td>';
+                product += '<td><button onclick="app.edit(' + i + ');">Edit</button></td>';
+                product += '<td><button onclick="app.delete(' + i + ');">Delete</button></td>';
+                product += '</tr>';
+            }
+
+            this.countProducts(this.productArrays.length);
+            return document.getElementById("showProducts").innerHTML = product;
+        }
+    }
+
+    let app = new Products();
+    app.display();
+</script>
+</body>
+</html>
