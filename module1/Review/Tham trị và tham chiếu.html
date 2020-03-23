@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tham trị và tham chiếu</title>
+</head>
+<body>
+<script>
+    /*Truyền tham trị
+    Hàm được gọi bằng cách truyền trực tiếp giá trị của biến làm đối số.
+        Thay đổi đối số bên trong hàm không ảnh hưởng đến biến được truyền từ bên ngoài hàm.
+        Javascript luôn luôn truyền tham trị và không bao giờ thay đổi giá trị với kiểu dữ liệu nguyên thủy (String, number hoặc boolen)*/
+    function callByValue(varOne, varTwo) {
+        console.log("Inside Call by Value Method");
+        varOne = 100;
+        varTwo = 200;
+        console.log("varOne =" + varOne +"varTwo =" +varTwo);
+    }
+    let varOne = 10;
+    let varTwo = 20;
+    console.log("Before Call by Value Method");
+    console.log("varOne =" + varOne +"varTwo =" +varTwo);
+    callByValue(varOne, varTwo);
+    console.log("After Call by Value Method");
+    console.log("varOne =" + varOne +"varTwo =" +varTwo);
+
+    /*output will be :
+        ---------------
+            Before Call by Value Method
+    varOne =10 varTwo =20
+    Inside Call by Value Method
+    varOne =100 varTwo =200
+    After Call by Value Method
+    varOne =10 varTwo =20*/
+</script>
+</body>
+</html>

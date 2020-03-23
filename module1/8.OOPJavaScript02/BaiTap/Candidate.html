@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Candidate</title>
+    <style>
+        .container {
+            padding: 0;
+            margin: 0;
+            width: 600px;
+        }
+
+        .user {
+            display: inline-grid;
+            padding: 5px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        input {
+            font-size: 20px;
+        }
+
+        button {
+            width: auto;
+            height: 30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form id="myForm">
+        <h2>Input Candidate Information</h2>
+        <div class="user">
+            <label for="id">Candidate ID</label>
+            <input id="id">
+        </div>
+        <div class="user">
+            <label for="name">Candidate Name</label>
+            <input id="name">
+        </div>
+        <div class="user">
+            <label for="birth">Candidate Birth</label>
+            <input id="birth">
+        </div>
+        <div class="user">
+            <label for="mathScore">Math Score</label>
+            <input id="mathScore">
+        </div>
+        <div class="user">
+            <label for="literatureScore">Literature Score</label>
+            <input id="literatureScore">
+        </div>
+        <div class="user">
+            <label for="englishScore">English Score</label>
+            <input id="englishScore">
+        </div>
+        <div class="user">
+            <button type="submit" onclick="getUser(); return false;">Submit</button>
+        </div>
+    </form>
+    <button id="test" onclick="testFilter();"> Average Score  Greater than 15</button>
+    <div class="container">
+        <table>
+            <tbody id="result">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    /* Xây dựng lớp Candidate (Thí sinh) gồm các thuộc tính: mã, tên, ngày tháng năm sinh, điểm thi Toán, Văn, Anh
+    và các phương thức cần thiết.*/
+
+    class Candidate {
+        constructor() {
+            this.id = "";
+            this.name = "";
+            this.birth = "";
+            this.mathScore = 0;
+            this.literatureScore = 0;
+            this.englishScore = 0;
+            this.avengerScore = 0;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            return this.id = id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            return this.name = name;
+        }
+
+        getBirth() {
+            return this.birth;
+        }
+
+        setBirth(birth) {
+            return this.birth = birth;
+        }
+
+        getMathScore() {
+            return this.mathScore;
+        }
+
+        setMathScore(score) {
+            return this.mathScore = score;
+        }
+
+        getLiteratureScore() {
+            return this.literatureScore;
+        }
+
+        setLiteratureScore(score) {
+            return this.literatureScore = score;
+        }
+
+        getEnglishScore() {
+            return this.englishScore;
+        }
+
+        setEnglishScore(score) {
+            return this.englishScore = score;
+        }
+
+        calculateAvengerScore() {
+            let result = (this.mathScore + this.literatureScore + this.englishScore) / 3;
+            return this.avengerScore = Math.round(result);
+        }
+
+        getAvengerScore() {
+            return this.avengerScore;
+        }
+    }
+
+    class TestCandidate {
+        constructor(candidate) {
+            this.candidate = candidate;
+            this.storesCandidate = [];
+            this.listCandidateByScore=[];
+        }
+
+        saveCandidate(candidate) {
+            this.storesCandidate.push(candidate);
+        }
+
+        filterByAvengeScore() {
+            this.listCandidateByScore = this.storesCandidate.filter((candidate) => {
+                return candidate.avengerScore >= 15;
+            });
+            this.displayResult();
+        }
+        displayResult(){
+                let result = "";
+                for (let i = 0; i < this.listCandidateByScore.length; i++) {
+                    result += '<tr>';
+                    result += '<td>' + this.listCandidateByScore[i].id + '</td>';
+                    result += '<td>' + this.listCandidateByScore[i].name + '</td>';
+                    result += '<td>' + this.listCandidateByScore[i].birth + '</td>';
+                    result += '<td>' + this.listCandidateByScore[i].avengerScore + '</td>';
+                    result += '</tr>';
+                }
+                return document.getElementById("result").innerHTML = result;
+        }
+    }
+
+    let candidate = new Candidate();
+    let testCandidate = new TestCandidate(candidate);
+
+    function getUser() {
+        let newCandidate = new Candidate();
+        newCandidate.setId(getElementById("id").value);
+        newCandidate.setName(getElementById("name").value);
+        newCandidate.setBirth(getElementById("birth").value);
+        newCandidate.setMathScore(parseInt(getElementById("mathScore").value));
+        newCandidate.setLiteratureScore(parseInt(getElementById("literatureScore").value));
+        newCandidate.setEnglishScore(parseInt(getElementById("englishScore").value));
+        newCandidate.calculateAvengerScore();
+        testCandidate.saveCandidate(newCandidate);
+        getElementById("myForm").reset();
+    }
+
+    function testFilter() {
+        testCandidate.filterByAvengeScore();
+        console.log(testCandidate.listCandidateByScore.sort());
+    }
+
+
+    function getElementById(id) {
+        return document.getElementById(id);
+    }
+</script>
+</body>
+</html>
