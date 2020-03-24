@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mouse {
+        constructor(name, weight, speed, isAlive) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.isAlive = isAlive;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            return this.name = name;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(weight) {
+            return this.weight = weight;
+        }
+
+        getSpeed() {
+            return this.speed;
+        }
+
+        setSpeed(speed) {
+            return this.speed = speed;
+        }
+
+        getIsAlive() {
+            return this.isAlive;
+        }
+
+        setIsAlive(status) {
+            return this.isAlive = status;
+        }
+
+        speak() {
+            alert("chit chit chit");
+        }
+
+    }
+
+    class Cat {
+        constructor(name, weight, maxSpeed) {
+            this.name = name;
+            this.weight = weight;
+            this.maxSpeed = maxSpeed;
+            this.isCatchMouse = false;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            return this.name = name;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(weight) {
+            return this.weight = weight;
+        }
+
+        getMaxSpeed() {
+            return this.maxSpeed;
+        }
+
+        setMaxSpeed(speed) {
+            return this.maxSpeed = speed;
+        }
+
+        speak() {
+            alert("Meo Meo Meo");
+        }
+
+        catchMouse(mouse) {
+            if (mouse.getSpeed() > this.maxSpeed) {
+                alert("Can't catch mouse. The mouse has escaped");
+                return this.isCatchMouse = false;
+            } else {
+                alert("Caught the mouse");
+                mouse.speak();
+                this.speak();
+                return this.isCatchMouse = true;
+            }
+        }
+
+        eatMouse(mouse) {
+            if (this.isCatchMouse && mouse.getIsAlive()) {
+                alert("Eating");
+                let weight = this.getWeight() + mouse.getWeight();
+                this.setWeight(weight);
+                alert("Cat weight increment " + this.getWeight())
+            } else if (this.isCatchMouse && !mouse.getIsAlive()) {
+                alert("Cat not eat dead mouse")
+            } else {
+                alert("Can't eat. The mouse has escaped");
+            }
+        }
+    }
+
+    function simulatorCatAndMouse() {
+        let mouse = new Mouse("Chicken", 10, 10, true);
+        let cat = new Cat("Tom", 20, 9);
+        mouse.speak();
+        cat.catchMouse(mouse);
+        cat.eatMouse(mouse);
+    }
+
+    simulatorCatAndMouse();
+</script>
+</body>
+</html>
