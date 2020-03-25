@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentManagement</title>
+    <style>
+        .add {
+            display: inline-grid;
+            padding: 5px;
+        }
+
+        .button {
+            padding: 5px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- <form id="addUser">-->
+    <div class="add">
+        <label for="id">ID</label>
+        <input id="id">
+    </div>
+    <div class="add">
+        <label for="name">Name</label>
+        <input id="name">
+    </div>
+    <div class="add">
+        <label for="birth">Birth</label>
+        <input id="birth">
+    </div>
+    <div class="add">
+        <label for="className">Class Name</label>
+        <input id="className">
+    </div>
+    <div class="add">
+        <label for="classYear">Class Year</label>
+        <input id="classYear">
+    </div>
+    <div class="button">
+        <button type="submit" onclick="addStudent();">Add Student</button>
+    </div>
+    <div class="button">
+        <button type="submit" onclick="removeByPop();">Remove By Pop</button>
+    </div>
+    <div class="button">
+        <button type="submit" onclick="removeBySplice();">Remove By Splice</button>
+        <button type="submit" onclick="findStudentByIdOrName();">Search</button>
+        <label for="deleteFind"></label><input id="deleteFind" placeholder="Delete | Search">
+    </div>
+    <!-- </form>-->
+</div>
+<script>
+    /* Xây dựng một chương trình quản  lý danh  sách các  sinh viên  của một lớp. Mỗi sinh viên gồm các thông tin:
+     mã số sinh viên (MSSV),  họ  tên, ngày sinh, giới tính, tên lớp, khóa. Chương trình sẽ thực hiện các chức năng cụ thể như sau:
+         -	Add(student, p): Bổ sung thêm một sinh viên student vào vị trí  cuối của danh sách.
+     -	Remove(mssv): Loại bỏ một sinh viên với MSSV được nhập từ bàn phím.
+     -	Remove(p): Loại bỏ sinh viên ở vị trí thứ p bất  kỳ trong danh  sách (phần tử  đầu tiên có vị trí là 1).
+     -	Search(s): Tìm một sinh viên theo MSSV hoặc theo tên (với một thông tin s  vào thì trước tiên tìm sinh viên có MSSV =  s,
+     nếu không thấy thì  tìm sinh  viên có Họ tên = s.
+         -	Print(): In ra nội dung danh sách sinh viên.
+     -	Sort(type): sắp xếp danh sách theo MSSV.*/
+    let storesStudent = [];
+
+    class Student {
+        constructor() {
+            this.id = 0;
+            this.name = "";
+            this.birth = "";
+            this.className = "";
+            this.classYear = 0;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            return this.id = id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            return this.name = name;
+        }
+
+        getBirth() {
+            return this.birth;
+        }
+
+        setBirth(birth) {
+            return this.birth = birth;
+        }
+
+        getClassName() {
+            return this.className;
+        }
+
+        setClassName(className) {
+            return this.className = className;
+        }
+
+        getClassYear() {
+            return this.classYear;
+        }
+
+        setClassYear(classYear) {
+            return this.classYear = classYear;
+        }
+
+    }
+
+    let student = new Student();
+
+    // Add(student, p): Bổ sung thêm một sinh viên student vào vị trí  cuối của danh sách.
+    function addStudent() {
+        let student = new Student();
+        student.setId(getValueElementById("id"));
+        student.setName(getValueElementById("name"));
+        student.setBirth(getValueElementById("birth"));
+        student.setClassName(getValueElementById("className"));
+        student.setClassYear(getValueElementById("classYear"));
+        storesStudent.push(student);
+    }
+
+    //Remove(mssv): Loại bỏ một sinh viên với MSSV được nhập từ bàn phím.
+    function removeByPop() {
+        let result = storesStudent.pop();
+        console.log(result);
+    }
+
+    // Remove(p): Loại bỏ sinh viên ở vị trí thứ p bất  kỳ trong danh  sách (phần tử  đầu tiên có vị trí là 1).
+    function removeBySplice() {
+        let getValue = getValueElementById("removeStudent").value;
+        let removeStudent = getValue - 1;
+        let result = storesStudent.splice(removeStudent, 1);
+        console.log(result);
+    }
+
+    //Search(s): Tìm một sinh viên theo MSSV hoặc theo tên (với một thông tin s  vào thì trước tiên tìm sinh viên có MSSV =  s,
+    // nếu không thấy thì  tìm sinh  viên có Họ tên = s.
+    function findStudentByIdOrName() {
+        let input = getValueElementById("deleteFind");
+        let indexById;
+        let indexByName;
+        for (let i = 0; i < storesStudent.length; i++) {
+            if (storesStudent[i].id === input) {
+                indexById = i;
+                console.log("index by id: "+indexById);
+                alert("find by id");
+                displayResult(indexById);
+                break;
+            } else if (storesStudent[i].name === input) {
+                indexByName = i;
+                alert("find by name");
+                displayResult(indexByName);
+            }
+        }
+    }
+    function findByFilter(){
+        let s = getValueElementById("deleteFind");
+        let resultStores = storesStudent.filter((student)=>{
+            if(student.id===s){
+                return student.id=s;
+            }else if(student.name===s){
+                return student.name=s;
+            }
+        });
+        console.log(resultStores);
+    }
+    function displayResult(index){
+        console.log(storesStudent[index].id);
+        console.log(storesStudent[index].name);
+        console.log(storesStudent[index].birth);
+        console.log(storesStudent[index].className);
+        console.log(storesStudent[index].classYear);
+
+        /*document.getElementById("id").innerHTML = storesStudent[index].id;
+        document.getElementById("name").innerHTML = storesStudent[index].name;
+        document.getElementById("birth").innerHTML = storesStudent[index].birth;
+        document.getElementById("className").innerHTML = storesStudent[index].className;
+        document.getElementById("classYear").innerHTML = storesStudent[index].classYear;*/
+    }
+
+    function getValueElementById(id) {
+        return document.getElementById(id).value;
+    }
+
+</script>
+</body>
+</html>

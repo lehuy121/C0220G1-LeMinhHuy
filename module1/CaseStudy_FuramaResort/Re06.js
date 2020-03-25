@@ -424,7 +424,7 @@ class Employee {
 
 function mainMenu() {
     let flag = false;
-    let menuAddCustomer = "Enter 1: Add Name Customer";
+    let menuAddCustomer = "Enter 1: Add Customer";
     let menuDisplayCustomer = "Enter 2: Display Customer";
     let menuEditCustomer = "Enter 3: Edit Customer";
     let menuDeleteCustomer = "Enter 4: Delete Customer";
