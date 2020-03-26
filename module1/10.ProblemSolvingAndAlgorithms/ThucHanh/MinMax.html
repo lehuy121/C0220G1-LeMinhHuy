@@ -24,13 +24,15 @@
         }
         return max;
     }
-    function findSecondMax(arr) {
+    function findSecondMax(arr) { //co the dung sort theo giam dan va in ra phan tu o vi tri thu 2
         let firstMax = arr[0];
         let secondMax = arr[0];
         for (let i = 1; i < arr.length; ++i) {
             if (arr[i] > firstMax) {
                 secondMax =firstMax;
                 firstMax = arr[i];
+            }else if(arr[i] > secondMax && arr[i] !== firstMax){
+                secondMax = arr[i];
             }
         }
         return secondMax;
@@ -38,13 +40,13 @@
 
     function displayArr(arr) {
         for (let i = 0; i < arr.length; ++i) {
-            console.log(arr[i] + " ");
-            if (arr[i] % 10 === 9) {
+            document.write(arr[i] + "--");
+           /* if (arr[i] % 10 === 9) {
                 console.log("\n");
             }
             if (arr[i] % 10 !== 0) {
                 console.log("\n");
-            }
+            }*/
         }
 
     }

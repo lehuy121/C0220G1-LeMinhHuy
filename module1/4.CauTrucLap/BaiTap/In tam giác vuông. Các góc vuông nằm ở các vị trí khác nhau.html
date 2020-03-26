@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau
+    </title>
+</head>
+<body>
+<script>
+    // *
+    // **
+    // ***
+    // ****
+    // *****
+    function print1(num) {
+        let star = "*";
+        for (let i = 0; i < num; i++) {
+            for (let j = 0; j < i; j++) {
+                document.write(star);
+            }
+            document.write(star + "<br>");
+        }
+    }
+    // *****
+    // ****
+    // ***
+    // **
+    // *
+    function printRepeat2(n) {
+        let star = "*";
+        for (let i = n; i > 0; i--) {
+            document.write(star.repeat(i) + "<br>");
+        }
+    }
+    //     *
+    //    **
+    //   ***
+    //  ****
+    // *****
+    function printRepeat3(n) {
+        let star = "*";
+        let str="";
+        for (let i = 0; i <= n; i++) {
+            for(let j=0;j<n;j++){
+                str+=" ";
+               document.write(str);
+            }
+           document.write(star + "<br>");
+        }
+    }
+    print1(5);
+    printRepeat2(5);
+    printRepeat3(5);
+</script>
+</body>
+</html>

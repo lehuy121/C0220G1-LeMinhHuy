@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function isPalindrome1(string) {
+        let regExp = /[\W_]/g;
+        let lowRegStr = string.toLowerCase().replace(regExp, '');
+        let reverseStr = lowRegStr.split('').reverse().join('');
+        return reverseStr === lowRegStr;
+    }
+
+    function isPalindrome2(string) {
+        let regExp = /[\W_]/g;
+        let lowRegStr = string.toLowerCase().replace(regExp, '');
+        let lenString = string / length;
+        for (let i = 0; i < lenString / 2; i++) {
+            if (lowRegStr[i] !== lowRegStr[lenString - 1 - i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    alert("Using reverse: "+performance.now() + isPalindrome1("Re  d d er"));
+    alert("Using for loop: "+performance.now()+ isPalindrome2("Re  d d er"));
+</script>
+</body>
+</html>
