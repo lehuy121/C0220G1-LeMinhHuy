@@ -11,18 +11,22 @@
     let phoneNumberArr = ["+84-555-551-412", "+84-355-531-146", "+84-555-555-735", "+84-555-529-045", "+84-755-512-747", "+84-855-588-623", "+84-355-548-164", "+84-955-560-509", "+84-355-531-592", "+84-555-553-876", "+84-955-553-938", "+84-555-537-576", "+84-355-581-883", "+84-755-585-038", "+84-355-560-883", "+84-955-519-277", "+84-855-526-100", "+84-355-533-414", "+84-355-579-653", "+84-855-569-800"];
     //  console.log(phoneNumberArr);
     let phonePattern = /^(\+[\d]{2})-([5]{3})-([\d]{3})-([\d]{3})$/;
+
     function findPhoneNumber(arr, phone) {
         let flag = false;
+        let count=0;
         for (let i = 0; i < arr.length; i++) {
             if (phone.test(arr[i])) {
                 flag = true;
-                document.write("Phone: " + arr[i] + "<br>")
+                count++;
+                document.write("Phone: " + count + arr[i] + "<br>")
             }
         }
         if (!flag) {
             alert("Not found");
         }
     }
+
     findPhoneNumber(phoneNumberArr, phonePattern);
 </script>
 </body>

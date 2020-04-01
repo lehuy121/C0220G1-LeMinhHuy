@@ -14,8 +14,9 @@
     function addElementToArray() {
         let input;
         for (let i = 0; i < 5; i++) {
-            input = parseInt(prompt("Input Number"));
-            console.log(input);
+            let countInput=1;
+            countInput+=i;
+            input = parseInt(prompt("Input Number" + countInput));
             arrayNumber[element] = input;
             element++;
         }

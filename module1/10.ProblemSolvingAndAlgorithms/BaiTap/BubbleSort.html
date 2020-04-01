@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    let arr = [10, 3, 5, 6, 32, 100, 1, 2];
+    let arr = [3, 5, 6, 32, 100, 104, 2];
 
     function bubbleSort(arr) {
         for (let i = 0; i < arr.length - 1; i++) {
@@ -22,30 +22,36 @@
         return arr;
     }
 
-    function InsertionSort(arr) {
-        let len = arr.length;    	// number of items in the array
-        let value;                     // the value currently being compared
-        let i;                         // index into unsorted section
-        let j;                          // index into sorted section
-        for (i = 1; i < len; i++) {
-            // store the current value because it may shift later
-            value = arr[i];
-            j = i - 1;
-            // Whenever the value in the sorted section is greater than the value
-            // in the unsorted section, shift all items in the sorted section over
-            // by one. This creates space in which to insert the value.
-            while (j >= 0 && arr[j] > value) {
+    function insertionSort(arr) {
+        let len = arr.length;
+        for (let i = 1; i < len; i++) {
+            let key = arr[i];
+            let j = i - 1;
+            while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
                 j--;
             }
-            arr[j + 1] = value
+            arr[j + 1] = key;
+        }
+        return arr;
+    }
+
+    function insertionSort2(arr) {
+        for (let i = 1; i < arr.length; i++) {
+            for (let j = 0; j < i; j++) {
+                if (arr[i] < arr[j]) {
+                    let temp = arr.splice(i, 1);
+                    arr.splice(j, 0, temp[0]);
+                }
+            }
         }
         return arr;
     }
 
     document.write("<h1>" + "Before sort: " + arr + "</h1>");
     document.write("<h1>" + "Bubble sort: " + performance.now() + "----" + bubbleSort(arr) + "</h1>");
-    document.write("<h1>" + "Insert sort: " + performance.now() + "----" + InsertionSort(arr) + "</h1>");
+    document.write("<h1>" + "Insertion sort: " + performance.now() + "----" + insertionSort(arr) + "</h1>");
+    document.write("<h1>" + "Insertion sort2: " + performance.now() + "----" + insertionSort2(arr) + "</h1>");
 </script>
 </body>
 </html>

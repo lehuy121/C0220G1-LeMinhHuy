@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function generateNumber(rangerNum) {
+        let arr = [];
+        for (let i = 1; i <= rangerNum; i++) {
+            let random = Math.floor(Math.random() * rangerNum);
+            arr.push(random);
+        }
+        return arr;
+    }
+
+    function removeDuplicateFilter(arr) {
+        let arrNumber = [];
+        arr.filter((element) => {
+            if (arrNumber.indexOf(element) === -1) {
+                arrNumber.push(element);
+                return true;
+            } else {
+                return false;
+            }
+        });
+        return arrNumber;
+    }
+
+    // cach nay phai sort truoc
+    function removeDuplicate(arr) {
+        let newArr = [];
+        let temp = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== temp) {
+                newArr.push(arr[i]);
+                temp = arr[i];
+            }
+        }
+        return newArr;
+    }
+
+    function removeDuplicateByObject(arr) {
+        let obj = {};
+        for (let i of arr) {
+            obj[i] = true;
+        }
+        return Object.keys(obj);
+    }
+
+    function removeDuplicateBySet(arr) {
+        return [...new Set(arr)];
+    }
+
+    function sortArr(arr) {
+        arr.sort((a, b) => {
+            return a - b;
+        });
+        return arr;
+    }
+
+    function findMax(arr) {
+        let max = arr[0];
+        let max2 = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max2= max;
+                max = arr[i];
+            }else if(arr[i] > max2 && arr[i] !== max){
+                max2 = arr[i];
+            }
+        }
+        return max2;
+    }
+
+    function findMin(arr) {
+        let min = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    let randomNumber = generateNumber(10);
+    let randomNumber1 = generateNumber(10);
+
+    let arrayNumber = removeDuplicateBySet(randomNumber);
+    let arrayNumber1 = removeDuplicate(sortArr(randomNumber1));
+    console.log(arrayNumber1);
+    console.log(findMax(arrayNumber1));
+    console.log(findMin(arrayNumber1));
+
+    console.log(arrayNumber);
+    console.log(sortArr(arrayNumber));
+</script>
+</body>
+</html>

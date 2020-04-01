@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Tính tiền lãi</title>
+    <!--     khi biết số tiền ban đầu: 500.000, số tháng cho vay 3 và lãi xuất hàng tháng 5%.-->
+</head>
+<body>
+<script>
+    let loan=500;
+    let interestRate=10/100;
+    let choose=parseInt(prompt("Nhập số tháng :"));
+    switch (choose) {
+        case 1:{
+            let sum1=loan+loan*interestRate;
+            alert("tổng số tiền và tiền lãi phải trả tháng 1 là: "+sum1);
+            break;
+        }
+        case 2:{
+            let sum2=loan+(loan+loan*interestRate) *interestRate;
+            alert("tổng số tiền và tiền lãi phải trả tháng 2 là: "+sum2);
+            break;
+        }
+        case 3:{
+            let sum3=loan+(loan+(loan+loan*interestRate) *interestRate)*interestRate;
+            alert("tổng số tiền và tiền lãi phải trả tháng 2 là: "+sum3);
+            break;
+        }
+        default:{
+            alert("failed")
+        }
+    }
+</script>
+</body>
+</html>

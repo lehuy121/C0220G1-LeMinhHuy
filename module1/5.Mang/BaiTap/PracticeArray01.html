@@ -5,6 +5,10 @@
     <title>Practice Array 01</title>
 </head>
 <body>
+<input id="input" placeholder="Input Number">
+<button onclick="addNumber();">Add</button>
+<button onclick="displayResult();">Display</button>
+<button onclick="addElementToArray();">Prompt</button>
 <script>
     //Bài 1- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử.
     // Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.
@@ -15,12 +19,20 @@
 
     function addElementToArray() {
         for (let i = 0; i < 10; i++) {
-            input = parseInt(prompt("Input Number"));
+            let count =1;
+            count+=i;
+            input = parseInt(prompt("Input Number" + count ));
             console.log(input);
             arrayNumber[element] = input;
             element++;
         }
         displayResult();
+    }
+    function addNumber(){
+        let inputNumber;
+        inputNumber = document.getElementById("input").value;
+        arrayNumber.push(inputNumber);
+        document.getElementById("input").value="";
     }
 
     function calculator() {
@@ -37,7 +49,7 @@
         document.write("<h2>"+"There are: " + calculator() + " number greater or equal 10"+"</h2>");
     }
 
-    window.onload = addElementToArray;
+  //  window.onload = addElementToArray;
 </script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, 2, 3, 4, 5, 6];
+    let string = "hello javascript";
+    let arrayString = ["hello", "javascript"];
+
+    let newArr = arr.slice(3);
+    let mid = Math.round((arr[0] + arr[arr.length - 1]) / 2);
+    let letter = new Array(3);
+    for(let i=0; i< letter.length;i++){
+        letter[i] = new Array(3);
+    }
+    letter[0][0] = "a";
+    letter[0][1] = "f";
+    letter[0][2] = "k";
+    letter[1][0] = "b";
+    letter[1][1] = "g";
+    letter[1][2] = "l";
+    letter[2][0] = "c";
+    letter[2][1] ='h';
+    letter[2][2] = 'm';
+    console.table(letter);
+
+    function capitalizeNames(peopleArray) {
+        return peopleArray.map((name) => {
+            return name.split(' ').map((word) => {
+                return word[0].toUpperCase() + word.slice(1).toLowerCase();
+            });
+        });
+    }
+    function capitalize(arr){
+        for(let i=0; i<arr.length; i++){
+           arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+        }
+        return arr;
+    }
+
+   // console.log(capitalizeNames(arrayString));
+    console.log(capitalize(arrayString));
+    console.log(arr);
+    console.log(newArr);
+</script>
+</body>
+</html>
