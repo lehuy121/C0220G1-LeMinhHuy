@@ -1,3 +1,5 @@
+package ThucHanh;
+
 public class FindElementInArray {
 
     public static void main(String[] args) {

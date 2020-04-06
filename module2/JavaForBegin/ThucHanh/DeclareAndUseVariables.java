@@ -1,3 +1,5 @@
+package ThucHanh;
+
 public class DeclareAndUseVariables {
     public static void main(String[] a){
         int i = 10;
