@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sortNumber() {
+        let arr = [];
+        for (let i = 0; i < 5; i++) {
+            let input = parseInt(prompt("Input number"));
+            arr.push(input);
+        }
+        arr.sort((a, b) => {
+            return a - b;
+        });
+        return arr;
+    }
+    console.log(sortNumber());
+</script>
+</body>
+</html>

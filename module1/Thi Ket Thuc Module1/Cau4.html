@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 4</title>
+</head>
+<body>
+<script>
+    class Student {
+        constructor(serial, fullName, birth, avengeScore) {
+            this.serial = serial;
+            this.fullName = fullName;
+            this.birth = birth;
+            this.avengeScore = avengeScore;
+        }
+
+        getSerial() {
+            return this.serial;
+        }
+
+        setSerial(serial) {
+            return this.serial = serial;
+        }
+
+        getFullName() {
+            return this.fullName;
+        }
+
+        setFullName(fullName) {
+            return this.fullName = fullName;
+        }
+
+        getBirth() {
+            return this.birth;
+        }
+
+        setBirth(birth) {
+            return this.birth = birth;
+        }
+
+        getAvengeScore() {
+            return this.avengeScore;
+        }
+
+        setAvengeScore(avengeScore) {
+            return this.avengeScore = avengeScore;
+        }
+
+        displayStudent() {
+            document.write("Serial: " + this.getSerial() + "<br>");
+            document.write("Full Name: " + this.getFullName() + "<br>");
+            document.write("Day of Birth: " + this.getBirth() + "<br>");
+            document.write("Avenge Score: " + this.getAvengeScore() + "<br>");
+        }
+
+        levelStudent() {
+            if (this.getAvengeScore() > 8) {
+                document.write("Gioi");
+            } else if (this.getAvengeScore() <= 8 && this.getAvengeScore() >= 6.5) {
+                document.write("Kha");
+            } else if (this.getAvengeScore() < 6.5 && this.getAvengeScore() >= 5) {
+                document.write("Trung Binh");
+            } else if (this.getAvengeScore() < 5 && this.getAvengeScore() >= 3.5) {
+                document.write("Yeu");
+            } else {
+                document.write("Kem");
+            }
+        }
+    }
+
+    let student = new Student(1, "Le Minh Huy", "12/6/1988", 5);
+    student.displayStudent();
+    student.levelStudent();
+
+</script>
+</body>
+</html>
